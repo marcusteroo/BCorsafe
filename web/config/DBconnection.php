@@ -1,11 +1,9 @@
 <?php
-// web/config/DBConnection.php
 class DBConnection {
     private static $instance = null;
     private $connection;
 
     private function __construct() {
-        // Configura tus credenciales de base de datos
         $host = 'localhost';
         $dbname = 'db_prueba';
         $username = 'root';

@@ -1,4 +1,3 @@
-<!-- web/View/productos.php -->
 
 <h2>Productos Disponibles</h2>
 <ul>

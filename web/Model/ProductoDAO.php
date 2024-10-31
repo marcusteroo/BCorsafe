@@ -1,5 +1,4 @@
 <?php
-// web/Model/ProductoDAO.php
 include_once 'web/config/DBConnection.php';
 include_once 'Producto.php';
 
@@ -31,6 +30,5 @@ class ProductoDAO {
         return $stmt->execute();
     }
 
-    // Aquí puedes añadir más métodos para actualizar, eliminar, etc.
 }
 ?>
