@@ -3,30 +3,29 @@ include_once("web/config/parameters.php");
 include_once("web/Controller/ProductosController.php");
 include_once("web/Controller/HomeController.php");
 
-// Verifica si `controller` está presente; si no, usa "home" por defecto
-if (isset($_GET['controller'])) {
-    // Si el parámetro "controller" está en la URL, se usa para construir el nombre del controlador
-    $nombre_controller = $_GET['controller'] . "Controller";
-} else {
-    // Si no hay "controller" en la URL, se usa "HomeController" como valor predeterminado
-    $nombre_controller = "HomeController";
-}
+// Obtiene la URL completa después de "index.php?url="
+$url = isset($_GET['url']) ? $_GET['url'] : '';
 
-// Verifica si `action` está presente; si no, usa "index" por defecto
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = 'index';
-}
+// Divide la URL en partes (por ejemplo, /productos/index se convierte en ['productos', 'index'])
+$urlParts = explode('/', $url);
 
-if (class_exists($nombre_controller)) {
-    $controller = new $nombre_controller();
+// El controlador por defecto es "HomeController"
+$controller = !empty($urlParts[0]) ? ucfirst($urlParts[0]) . "Controller" : "HomeController";
 
-    if (method_exists($controller, $action)) {
-        $controller->$action();
+// La acción por defecto es "index"
+$action = isset($urlParts[1]) ? $urlParts[1] : "index";
+
+// Verifica si el controlador existe
+if (class_exists($controller)) {
+    $controllerObj = new $controller();
+
+    // Verifica si el método (acción) existe en el controlador
+    if (method_exists($controllerObj, $action)) {
+        // Llama al método de acción
+        $controllerObj->$action();
     } else {
-        echo "La acción '$action' no existe en el controlador $nombre_controller.";
+        echo "La acción '$action' no existe en el controlador '$controller'.";
     }
 } else {
-    echo "El controlador '$nombre_controller' no existe.";
+    echo "El controlador '$controller' no existe.";
 }

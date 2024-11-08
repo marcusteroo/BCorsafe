@@ -1,0 +1,41 @@
+.navbar-nav .nav-link {
+    color: #ffffff !important; 
+    text-decoration: none; 
+    font-size: 18px;
+    font-family: "Saira", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 60px;
+    transition: transform 0.3s ease;
+}
+.navbar{
+    background-color: black !important;
+}
+.bi-search{
+    font-size: 28px;
+}
+.bi-cart{
+    font-size: 28px;
+    margin-right: 5px;
+}
+.logo-nav{
+    transition: transform 0.3s ease;
+
+}
+.texto-logo-nav{
+    font-family: "Saira", sans-serif;
+    font-weight: bold;
+}
+#icono-nav a{
+    margin-left: 15px;
+}
+
+/*Esto es para cuando la pantalla tenga como minimo 992px se aplique, es para dar una animacion a los enlaces del menu y al logo en las pantallas de escritorio*/
+@media (min-width: 992px) { 
+    .navbar-nav .nav-link:hover {
+        transform: scale(1.1); 
+    }
+    .logo-nav:hover{
+        transform: scale(1.1);
+    }
+}
