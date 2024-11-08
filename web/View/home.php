@@ -7,6 +7,7 @@
         <a href="productos" class="enlace-boton">
             <button>Ver Carta</button>
         </a>
+        <h1>Prueba</h1>
         
         
     </div>
