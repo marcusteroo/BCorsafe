@@ -86,6 +86,7 @@
                         <a href="#"><img src="./assets/img/whatsApp.png" alt="Logo WhatsApp"></a>
                         <a href="#"><img src="./assets/img/facebook (1).png" alt="Logo Facebook"></a>
                         <a href="#"><img src="./assets/img/instagram (1).png" alt="Logo Instagram"></a>
+                        <!-- Utilizo el formato png para que no se vea el fondo y sea transparante -->
                     </div>
                 </div>
 

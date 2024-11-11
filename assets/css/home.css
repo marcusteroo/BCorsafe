@@ -2,23 +2,14 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    /*background-image: url("../img/fondoweb.png");*/
     background-size: cover;
     background-position: center;
     
     
 }
-/*.capa-negra {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.45); 
-    z-index: 1;
-}*/
+
 #background-video {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -62,3 +53,67 @@
     font-weight: bold;
     margin-top: 50px;
 }
+.seccion3 {
+    background-color: #161517;
+}
+
+.imagenes-seccion1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.imagenes-seccion2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.imagenes-seccion {
+    display: flex;
+}
+
+.imagen-con-texto {
+    position: relative;
+    display: inline-block;
+}
+
+.imagen-con-texto img {
+    display: block;
+    height: auto;
+}
+
+.texto-imagen {
+    position: absolute;
+    top: 10%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ede81a; 
+    font-size: 42px;
+    font-weight: bold;
+    font-family: "Saira", sans-serif;
+    text-align: center;
+    padding: 5px 10px; 
+}
+.texto-imagen2 {
+    position: absolute;
+    top: 20%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Saira", sans-serif;
+    text-align: center;
+    padding: 5px 10px; 
+}
+.img-h-gaming{
+    width: 500px;
+}
+.titulo-seccion3 h2{
+    color: white;
+    text-align: center;
+    font-family: "Saira", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
