@@ -58,7 +58,7 @@
     
     <div class="row text-center">
         <div class="col-12 col-md-4 seccion4-2">
-            <img src="assets/img/HamLogo.gif" alt="logo de hamburguesa" class="img-fluid">
+            <video src="assets/img/HamLogo.mp4" autoplay loop muted></video>
             <p>LAS MEJORES HAMBURGUESAS GAMING</p>
         </div>
 
