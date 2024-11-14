@@ -63,7 +63,7 @@
         </div>
 
         <div class="col-12 col-md-4 seccion4-3">
-            <img src="assets/img/EnviarLogo.png" alt="logo de camion" class="img-fluid">
+            <video src="assets/img/EnvioVideo.mp4" autoplay loop muted></video>
             <p>ENVIOS SUPER RÁPIDOS</p>
         </div>
 
