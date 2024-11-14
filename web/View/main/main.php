@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $titulo ?? 'Mi Proyecto MVC'; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!-- Esto es para importar el Boostrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet"> <!-- Esto es para poder utilizar los iconos de Boostrap -->
@@ -21,7 +22,7 @@
             <div class="container-fluid">
                 
                 <!-- Logo con clases para que se centre en pantallas pequeñas -->
-                <a class="navbar-brand d-flex align-items-center mx-auto mx-lg-0 logo-nav" href="index.php?controller=home&action=index">
+                <a class="navbar-brand d-flex align-items-center ms-0 mx-lg-0 logo-nav" href="index.php?controller=home&action=index">
                     <img src="./assets/img/logowebGaming.png" alt="Logo BCorsafe" width="80" height="80" class="d-inline-block align-text-top">
                     <span class="ms-2 d-none d-lg-inline texto-logo-nav">BCorsafe</span> 
                 </a>
@@ -33,8 +34,8 @@
 
                 <!-- Menú de navegación -->
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
+                    <ul class="navbar-nav mx-auto text-center">
+                        <li class="nav-item ">
                             <a class="nav-link" href="index.php?controller=productos&action=index">Producto</a>
                         </li>
                         <li class="nav-item">
@@ -63,7 +64,7 @@
                     <a href="#" class="nav-link text-white me-3 ">
                         <i class="bi bi-search"></i> 
                     </a>
-                    <a href="#" class="nav-link text-white ">
+                    <a href="#" class="nav-link text-white me-3 ">
                         <i class="bi bi-cart"></i> 
                     </a>
                 </div>

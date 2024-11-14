@@ -7,6 +7,9 @@
     
     
 }
+hr{
+    border: 1px solid #EDE81A;
+}
 
 #background-video {
     position: absolute;
@@ -53,37 +56,67 @@
     font-weight: bold;
     margin-top: 50px;
 }
-.seccion3 {
+.fondo-home{
     background-color: #161517;
 }
-
+.seccion2{
+    color: white;
+    font-family: "Saira", sans-serif;
+    padding-top: 30px;
+    margin-bottom: 50px;
+    
+}
+.titulo-about{
+    font-size: 40px;
+    font-weight: bold;
+}
+.p-about{
+    font-size: 20px;
+    margin-bottom: 50px;
+}
 .imagenes-seccion1 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-bottom: 30px;
 }
 
 .imagenes-seccion2 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    width: 50%; 
+    margin: 0 auto; 
 }
+
 
 .imagenes-seccion {
     display: flex;
+    align-items: stretch;
+    justify-content: center;
+   
+    
 }
 
 .imagen-con-texto {
     position: relative;
     display: inline-block;
+    
+    
+    
+    
 }
 
-.imagen-con-texto img {
+.imagen-con-texto img { 
     display: block;
     height: auto;
-}
 
+    
+    
+}
 .texto-imagen {
     position: absolute;
-    top: 10%; 
+    top: 70px; 
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ede81a; 
@@ -93,9 +126,37 @@
     text-align: center;
     padding: 5px 10px; 
 }
+.texto-imagen-l {
+    position: absolute;
+    top: 40px; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ede81a; 
+    font-size: 42px;
+    font-weight: bold;
+    font-family: "Saira", sans-serif;
+    text-align: center;
+    padding: 5px 10px; 
+    margin-top: 30px;
+}
 .texto-imagen2 {
     position: absolute;
-    top: 20%; 
+    top: 120px; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Saira", sans-serif;
+    text-align: center;
+    padding: 5px 10px;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+.texto-imagen2-cuadrado {
+    position: absolute;
+    top: 120px; 
     left: 50%;
     transform: translate(-50%, -50%);
     color: white; 
@@ -104,16 +165,129 @@
     font-family: "Saira", sans-serif;
     text-align: center;
     padding: 5px 10px; 
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    text-decoration: none !important;
+    cursor: pointer;
+    
 }
-.img-h-gaming{
-    width: 500px;
+.texto-imagen2:hover, .texto-imagen2-cuadrado:hover {
+    transform: translate(-50%, -50%) scale(1.2);
 }
+
 .titulo-seccion3 h2{
     color: white;
     text-align: center;
     font-family: "Saira", sans-serif;
     font-size: 40px;
     font-weight: bold;
+    padding-top: 30px;
+    margin-bottom: 70px;
 
 }
+.imagenes-horizontales{
+    display: flex;
+    flex-direction: column;
+}
+.img-larga1{
+   
+    padding-right: 20px;
+    padding-top: 20px;
+}
+.img-larga2{
+    margin-right: 20px;
+}
+@media (max-width: 980px) {
+    .titulo-seccion3 h2 {
+        font-size: 28px;
+    }
+
+    .imagenes-seccion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imagenes-seccion1 {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .imagenes-horizontales {
+        width: 100%;
+    }
+
+    .imagenes-seccion2 {
+        width: 100%;
+        margin: 0;
+    }
+
+    .imagen-con-texto {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .texto-imagen {
+        font-size: 24px;
+    }
+    .texto-imagen-l {
+        font-size: 34px;
+        margin-top: 0px;
+    }
+
+    .texto-imagen2 {
+        font-size: 20px;
+    }
+
+    .img-larga1, .img-corta1 {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+    /*Aqui estoy utilizando estas clases para que en moviles no se vea todo el vertical de la pantalla para que la experiencia sea mas cómoda*/
+    .homeBC{
+        height: 80vh;
+    }
+    #background-video {
+        height: 80vh; 
+    }
+    .contenido-home{
+        height: 80vh;
+    }
+    .contenido-home h1{
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .contenido-home h2{
+        font-size: 30px;
+        
+    }
+    .texto-imagen2-cuadrado{
+        top: 120px;
+    }
+    .texto-imagen2{
+        top: 80px;
+    }
+    
+}
+@media (max-width: 500px){
+    .texto-imagen-l {
+        font-size: 24px;
+        margin-top: 0px;
+    }
+
+    .texto-imagen2 {
+        font-size: 16px;
+    }
+    .titulo-seccion3 h2{
+        margin-bottom: 30px;
+    }
+}
+.seccion4-4 p{
+    margin: 0px !important;
+    
+}
+.seccion4 p{
+    color: white;
+}
+
 
