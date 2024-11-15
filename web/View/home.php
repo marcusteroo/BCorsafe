@@ -68,7 +68,7 @@
         </div>
 
         <div class="col-12 col-md-4 seccion4-4">
-            <img src="assets/img/EspatulaLogo.png" alt="logo de espátula" class="img-fluid">
+            <video src="assets/img/EspatulaLed.mp4" autoplay loop muted></video>
             <p>LOS MEJORES CHEF DE LA CIUDAD</p>
         </div>
     </div>
