@@ -1,0 +1,58 @@
+.fondo-pro{
+    background-color: #161517;
+}
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.producto {
+    
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+}
+
+
+.producto-info {
+    padding-top: 10px;
+    background-color: #262626;
+    padding-left: 10px;
+    font-family: "Saira", sans-serif;
+    text-align: left;
+}
+
+.producto-nombre {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.producto-precio {
+    font-size: 1em;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.producto-descripcion{
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn-carrito {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn-carrito:hover {
+    background-color: #218838;
+}

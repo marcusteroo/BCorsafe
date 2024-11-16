@@ -62,8 +62,8 @@ hr{
 .seccion2{
     color: white;
     font-family: "Saira", sans-serif;
-    padding-top: 30px;
-    margin-bottom: 50px;
+    padding-top: 100px;
+    margin-bottom: 100px;
     
 }
 .titulo-about{
@@ -282,12 +282,20 @@ hr{
         margin-bottom: 30px;
     }
 }
+.seccion4{
+    font-family: "Saira", sans-serif;
+}
 .seccion4-4 p{
     margin: 0px !important;
     
 }
 .seccion4 p{
     color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
+.tiutlo-seccion4{
+    font-weight: bold;
 }
 
 

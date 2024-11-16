@@ -29,12 +29,12 @@
                 <div class="imagenes-horizontales">
                     <div class="imagen-con-texto">
                         <img src="assets/img/HamLarga1.webp" alt="Imagen hamburguesa gaming larga" width="100%" class="img-larga1" >
-                        <div class="texto-imagen-l">BurgerPixel</div>
+                        <div class="texto-imagen-l">XboxBurguer</div>
                         <a class="texto-imagen2">Comprar ahora -><a>
                     </div>
                     <div class="imagen-con-texto">
                         <img src="assets/img/HamLarga2.webp" alt="Imagen hamburguesa gaming larga" width="100%" class="img-larga1" >
-                        <div class="texto-imagen-l">BurgerPixel</div>
+                        <div class="texto-imagen-l">BlueBurguer</div>
                         <a class="texto-imagen2">Comprar ahora -></a>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
     <div class="seccion4 container">
     <div class="row">
         <div class="col-12 text-center mb-4 seccion4-1">
-            <h2>¿POR QUÉ TIENES QUE PROBAR NUESTRAS HAMBURGUESAS?</h2>
+            <h2 class="tiutlo-seccion4">¿POR QUÉ TIENES QUE PROBAR NUESTRAS HAMBURGUESAS?</h2>
         </div>
     </div>
     

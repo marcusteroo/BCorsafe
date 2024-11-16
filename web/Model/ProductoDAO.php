@@ -1,34 +1,21 @@
 <?php
-include_once 'web/config/DBConnection.php';
+include_once 'BaseDAO.php';
 include_once 'Producto.php';
 
-class ProductoDAO {
-    private $db;
-
-    public function __construct() {
-        $this->db = DBConnection::getInstance();
-    }
-
-    public function obtenerTodos() {
-        $stmt = $this->db->prepare("SELECT * FROM usuario");
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_CLASS, 'Producto');
-        return $result;
-    }
-
+class ProductoDAO extends BaseDAO {
     public function obtenerPorId($id) {
-        $stmt = $this->db->prepare("SELECT * FROM usuario WHERE id = :id");
+        $stmt = $this->db->prepare("SELECT * FROM Productos WHERE id_producto = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetchObject('Producto');
     }
 
-    public function insertar(Producto $producto) {
-        $stmt = $this->db->prepare("INSERT INTO productos (nombre, precio) VALUES (:nombre, :precio)");
-        $stmt->bindParam(':nombre', $producto->nombre);
-        $stmt->bindParam(':precio', $producto->precio);
-        return $stmt->execute();
+    protected function getTableName() {
+        return "Productos";
     }
 
+    protected function getClassName() {
+        return "Producto";
+    }
 }
 ?>
