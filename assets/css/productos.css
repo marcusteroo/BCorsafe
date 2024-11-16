@@ -1,9 +1,49 @@
 .fondo-pro{
     background-color: #161517;
+    
 }
+.contenedor-pagina {
+    display: flex;
+    flex-direction: row; /* Alinear filtros y productos en columnas */
+    gap: 20px;
+    align-items: flex-start; /* Alineación superior para filtros y productos */
+    
+}
+.productos-home{
+    
+    display: flex;
+    flex-direction: row; /* Alinear filtros y productos en columnas */
+}
+
+/* Filtros */
+.seccion-filtros {
+    flex: 0 0 400px; /* Filtros ocupan 300px fijos en la izquierda */
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    height: 100vh; /* Toda la altura de la pantalla */
+    overflow-y: auto; /* Scroll interno si es necesario */
+    
+}
+
+.filtros h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.filtros label {
+    font-weight: bold;
+}
+.checkboxes div { 
+    margin-bottom: 5px; 
+}
+
+
+
 .productos-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-columns: repeat(3, 1fr); /* Dos columnas */
     gap: 20px;
     margin-top: 20px;
 }
@@ -11,7 +51,7 @@
 .producto {
     
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
     max-width: 400px;
 }
 
