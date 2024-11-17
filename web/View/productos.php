@@ -1,5 +1,5 @@
 <div class="fondo-pro">
-    <h2>Productos Disponibles</h2>
+    <h2 class="titulo_productos">Productos Disponibles</h2>
     <div class="productos-home">
         <div class="contenedor-pagina">
             <!-- Sección de Filtros -->
@@ -7,39 +7,33 @@
                 <h3>Filtros</h3>
 
                 <!-- Filtro por precio -->
-                <form method="GET" action="">
-                    <div class="filtro-precio">
-                        <label>Rango de precio:</label>
-                        <div>
-                            <input type="range" name="precio-min" id="precio-min" min="0" max="100" 
-                                value="<?php echo htmlspecialchars($_GET['precio-min'] ?? '0'); ?>" 
-                                oninput="mostrarValoresPrecio()">
-                            <input type="range" name="precio-max" id="precio-max" min="0" max="100" 
-                                value="<?php echo htmlspecialchars($_GET['precio-max'] ?? '100'); ?>" 
-                                oninput="mostrarValoresPrecio()">
-                        </div>
-                        <div>
-                            <span id="precio-min-display">0</span> - <span id="precio-max-display">100</span>
-                        </div>
+                <!-- Filtro por precio -->
+                <div class="filtro-precio">
+                    <div class="checkboxes">
+                        <?php
+                        // Precios predeterminados
+                        $precios = [12, 15, 19];
+                        foreach ($precios as $precio) {
+                            $checked = isset($_GET['precios']) && in_array($precio, $_GET['precios']) ? 'checked' : '';
+                            echo '<div class="checkbox-custom"><input type="checkbox" class="filtro-precio" name="precios[]" value="' . htmlspecialchars($precio) . '" ' . $checked . '> ' . htmlspecialchars($precio) . '€</div>';
+                        }
+                        ?>
                     </div>
+                </div>
 
-                    <!-- Filtro por ingredientes -->
-                    <div class="filtro-ingredientes">
-                        <label>Ingredientes:</label>
-                        <div class="checkboxes">
-                            <!-- Checkboxes para cada ingrediente -->
-                            <?php
-                            $ingredientes = ["Tomate", "Lechuga", "Huevo", "Queso", "Bacon"];
-                            foreach ($ingredientes as $ingrediente) {
-                                $checked = isset($_GET['ingredientes']) && in_array($ingrediente, $_GET['ingredientes']) ? 'checked' : '';
-                                echo '<div><input type="checkbox" name="ingredientes[]" value="' . htmlspecialchars($ingrediente) . '" ' . $checked . '> ' . htmlspecialchars($ingrediente) . '</div>';
-                            }
-                            ?>
-                        </div>
+                <!-- Filtro por ingredientes -->
+                <div class="filtro-ingredientes">
+                    <label>Ingredientes:</label>
+                    <div class="checkboxes">
+                        <?php
+                        $ingredientes = ["Tomate", "Lechuga", "Huevo", "Queso", "Bacon"];
+                        foreach ($ingredientes as $ingrediente) {
+                            $checked = isset($_GET['ingredientes']) && in_array($ingrediente, $_GET['ingredientes']) ? 'checked' : '';
+                            echo '<div class="checkbox-custom"><input type="checkbox" class="filtro-ingrediente" name="ingredientes[]" value="' . htmlspecialchars($ingrediente) . '" ' . $checked . '> ' . htmlspecialchars($ingrediente) . '</div>';
+                        }
+                        ?>
                     </div>
-
-                    <button type="submit">Aplicar Filtros</button>
-                </form>
+                </div>
             </div>
 
             <!-- Contenedor de Productos -->
@@ -62,3 +56,5 @@
         </div>
     </div>
 </div>
+<script src="assets/js/filtros.js"></script>
+

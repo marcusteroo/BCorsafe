@@ -1,6 +1,5 @@
 <?php
-include_once 'web/config/DBConnection.php';
-
+include_once $_SERVER['DOCUMENT_ROOT'] . '/BCorsafe/web/config/DBConnection.php'; // El server document root sirve para detectar la ruta absoluta del proyecto
 abstract class BaseDAO {
     protected $db;
 
