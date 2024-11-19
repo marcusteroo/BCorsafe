@@ -24,5 +24,17 @@ class ProductosController {
             echo "Producto no encontrado.";
         }
     }
+    public function filtrar() {
+        $titulo = "Productos";
+        $vista = "web/View/productos.php";
+        $precios = $_POST['precios'] ?? [];
+        $ingredientes = $_POST['ingredientes'] ?? [];
+        
+        $productoModel = new ProductoDAO();
+        
+        $productos = $productoModel->obtenerProductosFiltrados($precios, $ingredientes);
+        include_once("web/View/main/main.php");
+        include_once "web/View/productos.php";
+    }
 }
 ?>

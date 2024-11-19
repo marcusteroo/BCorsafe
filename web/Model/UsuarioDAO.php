@@ -18,12 +18,30 @@ class UsuarioDAO extends BaseDAO {
         return "Usuario";
     }
 
-    // Esto es un método para buscar por el correo
-    public function obtenerPorEmail($email) {
+    public function registrarUsuario($username, $email, $telefono, $password) {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM Usuarios WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+    
+        // Esto es para verificar si existe el correo
+        if ($stmt->fetchColumn() > 0) {
+            throw new Exception("El correo electrónico ya está registrado.");
+        }
+        $stmt = $this->db->prepare("INSERT INTO Usuarios (nombre, email, telefono, contrasena) VALUES (:nombre, :email, :telefono, :contrasena)");
+        $stmt->bindParam(':nombre', $username);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':contrasena', $password);
+        $stmt->execute();
+    }
+
+    public function getUsuarioByEmail($email) {
         $stmt = $this->db->prepare("SELECT * FROM Usuarios WHERE email = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
-        return $stmt->fetchObject('Usuario');
+    
+        // Devolver el resultado como un array asociativo
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
 ?>

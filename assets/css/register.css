@@ -1,0 +1,32 @@
+.altura-reg {
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    padding-top: 50px;
+    background-image: url("/BCorsafe/assets/img/FondoLogin.webp");
+}
+.form-container-reg {
+    max-width: 600px; 
+    width: 100%; 
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    background-color: transparent;
+    font-family: "Saira", sans-serif;
+}
+.form-container-reg label{
+    color: white;
+}
+.form-container-reg button{
+    background-color: #EDE81A;
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+.form-container-reg button:hover{
+    background-color: #EDE81A;
+    color: black;
+    border: none;
+}

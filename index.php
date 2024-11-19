@@ -2,6 +2,7 @@
 include_once("web/config/parameters.php");
 include_once("web/Controller/ProductosController.php");
 include_once("web/Controller/HomeController.php");
+include_once("web/Controller/UsuarioController.php");
 
 // Obtiene la URL completa después de "index.php?url="
 $url = isset($_GET['url']) ? $_GET['url'] : '';

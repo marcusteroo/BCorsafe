@@ -28,6 +28,24 @@
 #icono-nav a{
     margin-left: 15px;
 }
+.fondo-iniciar{
+    background-color: #161616 !important;
+}
+.texto-login a{
+    text-decoration: none;
+    color: white;
+    font-family: "Saira", sans-serif;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    
+}
+.separator {
+    width: 1px;
+    height: 20px;
+    background-color: #fff;
+    margin: 0 10px;
+    
+}
 
 /*Esto es para cuando la pantalla tenga como minimo 992px se aplique, es para dar una animacion a los enlaces del menu y al logo en las pantallas de escritorio*/
 @media (min-width: 992px) { 
@@ -36,5 +54,10 @@
     }
     .logo-nav:hover{
         transform: scale(1.1);
+    }
+}
+@media (max-width: 575px){ /*Esto para ocultar la barra de inicio de sesión en pantallas pequeñas*/
+    .fondo-iniciar{
+        display: none !important;
     }
 }

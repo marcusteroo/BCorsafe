@@ -1,30 +1,16 @@
-<?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: GET, POST");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-include_once $_SERVER['DOCUMENT_ROOT'] . '/BCorsafe/web/Model/ProductoDAO.php'; // El server document root sirve para detectar la ruta absoluta del proyecto
-$productoDAO = new ProductoDAO();
-$metodo = $_SERVER['REQUEST_METHOD'];
+<div class="productos-container">
+                <?php foreach ($productos as $producto): ?>
+                    <div class="producto">
+                        <img src="<?php echo htmlspecialchars($producto->img); ?>" alt="<?php echo htmlspecialchars($producto->nombre); ?>" class="producto-img" width="100%">
 
-switch ($metodo) {
-    case 'POST':
-        
-        $data = json_decode(file_get_contents("php://input"), true);
-        $precios = $data['precios'] ?? [];        
-        $ingredientes = $data['ingredientes'] ?? []; 
-    
-        $productosFiltrados = $productoDAO->filtrarProductos($precios, $ingredientes);
-
-        echo json_encode([
-            'estado' => 'Exito',
-            'data' => $productosFiltrados
-        ]);
-        break;
-
-    default:
-        echo json_encode(['estado' => 'Fallido', 'data' => 'Método no soportado']);
-        http_response_code(405); 
-        break;
-}
-?>
+                        <div class="producto-info">
+                            <div class="producto-nombre"><?php echo htmlspecialchars($producto->nombre); ?></div>
+                            <div class="producto-descripcion">
+                                <?php echo nl2br(htmlspecialchars($producto->descripcion)); ?>
+                            </div>
+                            <div class="producto-precio"><?php echo ($producto->precio); ?>€</div>
+                            <button class="btn-carrito">Añadir al carrito</button>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
