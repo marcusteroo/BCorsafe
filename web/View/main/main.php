@@ -1,5 +1,8 @@
 <?php
-session_start();
+ob_start(); //Esto es para prevenir errores de cabezeras
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} //Por si hay una sesion activa que no haya problemas.
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,7 +21,8 @@ session_start();
     <link rel="stylesheet" href="/BCorsafe/assets/css/estilos-nav.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/home.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/productos.css">
-    <link rel="stylesheet" href="/BCorsafe/assets/css/register.css">    
+    <link rel="stylesheet" href="/BCorsafe/assets/css/register.css">
+    <link rel="stylesheet" href="/BCorsafe/assets/css/micuenta.css">      
 
     
 </head>
@@ -28,7 +32,7 @@ session_start();
             <div class="container-fluid d-flex justify-content-end texto-login">
                 <?php if (isset($_SESSION['usuario_id'])): ?>
                     <!-- Si la sesión está activa, mostrar "Mi cuenta" -->
-                    <a href="/BCorsafe/mi-cuenta" class="text-white  d-none d-sm-inline">Mi cuenta</a>
+                    <a href="/BCorsafe/usuario/miCuenta" class="text-white  d-none d-sm-inline">Mi cuenta</a>
                 <?php else: ?>
                     <!-- Si la sesión no está activa, mostrar "Iniciar sesión" y "Registrarse" -->
                     <a href="/BCorsafe/usuario/login" class="text-white  d-none d-sm-inline">INICIAR SESIÓN</a>
@@ -78,7 +82,7 @@ session_start();
 
                         <?php if (isset($_SESSION['usuario_id'])): ?>
                             <li class="nav-item d-lg-none">
-                                <a href="/BCorsafe/mi-cuenta" class="nav-link text-white">Mi cuenta</a>
+                                <a href="/BCorsafe/usuario/miCuenta" class="nav-link text-white">Mi cuenta</a>
                             </li>
                         <?php else: ?>
                             <li class="nav-item d-lg-none">
@@ -166,3 +170,6 @@ session_start();
 
 </body>
 </html>
+<?php
+ob_end_flush(); // Esto es para enviar todo el contenido acomulado
+?>

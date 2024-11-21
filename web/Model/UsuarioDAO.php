@@ -43,5 +43,11 @@ class UsuarioDAO extends BaseDAO {
         // Devolver el resultado como un array asociativo
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function actualizarContrasena($id_usuario, $nueva_contrasena) {
+        $stmt = $this->db->prepare("UPDATE Usuarios SET contrasena = :contrasena WHERE id_usuario = :id_usuario");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->bindParam(':contrasena', $nueva_contrasena);
+        $stmt->execute();
+    }
 }
 ?>

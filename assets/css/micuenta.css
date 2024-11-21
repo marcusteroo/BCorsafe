@@ -1,0 +1,66 @@
+.altura-reg-micuenta {
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    padding-top: 50px;
+    background-image: url("/BCorsafe/assets/img/FondoLogin.webp");
+}
+
+.form-container-reg-micuenta {
+    max-width: 600px; 
+    width: 100%; 
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    background-color: transparent;
+    font-family: "Saira", sans-serif;
+}
+
+.form-container-reg-micuenta p {
+    color: white;
+    text-align: center;
+}
+.form-container-reg-micuenta h1 {
+    color: white;
+    text-align: center;
+}
+.form-container-reg-micuenta h4 {
+    color: white;
+    text-align: center;
+}
+.form-container-reg-micuenta button {
+    background-color: #EDE81A;
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+
+.form-container-reg-micuenta button:hover {
+    background-color: #EDE81A;
+    color: black;
+    border: none;
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+.btn-warning {
+    background-color: #EDE81A;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.btn-warning:hover {
+    background-color: #EDE81A;
+    color: black;
+    border: none;
+}
