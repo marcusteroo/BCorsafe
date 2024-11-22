@@ -1,66 +1,158 @@
-.altura-reg-micuenta {
-    min-height: 100vh; 
-    display: flex;
+.altura-reg-micuenta { 
+    display: flex; 
     justify-content: center; 
     align-items: flex-start; 
-    padding-top: 50px;
-    background-image: url("/BCorsafe/assets/img/FondoLogin.webp");
-}
-
-.form-container-reg-micuenta {
-    max-width: 600px; 
-    width: 100%; 
-    padding: 20px;
-    border: 1px solid black;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 8px;
-    background-color: transparent;
     font-family: "Saira", sans-serif;
 }
 
-.form-container-reg-micuenta p {
-    color: white;
-    text-align: center;
-}
-.form-container-reg-micuenta h1 {
-    color: white;
-    text-align: center;
-}
-.form-container-reg-micuenta h4 {
-    color: white;
-    text-align: center;
-}
-.form-container-reg-micuenta button {
-    background-color: #EDE81A;
-    color: black;
-    border: none;
-    font-weight: bold;
-}
-
-.form-container-reg-micuenta button:hover {
-    background-color: #EDE81A;
-    color: black;
-    border: none;
-}
-
-.alert {
-    margin-bottom: 20px;
-}
-
-.btn-warning {
-    background-color: #EDE81A;
-    color: black;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
+.micuenta-container {
     display: flex;
-    justify-content: center;
-    
+    max-width: 100%; 
+    width: 100%; 
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
 }
 
-.btn-warning:hover {
+/* izquierda */
+.micuenta-menu {
+    width: 30%;
+    background-color: #1e1e2f;
+    padding: 20px;
+    color: white;
+    height: 100vh;
+}
+
+.micuenta-menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+
+.micuenta-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.micuenta-menu li {
+    margin-bottom: 15px;
+}
+
+.micuenta-menu a {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.micuenta-menu a:hover {
+    color: #EDE81A; 
+}
+
+.micuenta-menu i {
+    font-size: 20px; 
+}
+
+.cerrar-sesion {
+    font-weight: bold;
+}
+
+
+.micuenta-info {
+    width: 70%;
+    padding: 40px;
+    background-color: white;
+}
+
+.micuenta-info h1 {
+    margin-bottom: 30px;
+}
+
+.micuenta-info p {
+    font-size: 18px;
+}
+
+.micuenta-info .btn-warning {
     background-color: #EDE81A;
     color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
     border: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.micuenta-info .btn-warning:hover {
+    background-color: #d9d415;
+    color: black;
+}
+.micuenta-info h4{
+    font-size: 45px;
+}
+.micuenta-info p{
+    font-size: 22px;
+}
+.perfil-imagen {
+    margin-top: 20px;
+    border: green solid 2px;
+    width: 30%;
+}
+
+.perfil-imagen h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.imagen-preview img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.form-control-micuenta {
+    max-width: 300px;
+    margin: 0 auto;
+}
+.derecha-micuenta{
+    border: red solid 2px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.btn-primary-micuenta {
+    display: block;
+    margin: 10px auto 0 auto;
+}
+@media (max-width: 768px){
+    .micuenta-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%; 
+        width: 100%; 
+        background-color: transparent;
+        border: 1px solid black;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        overflow: hidden;
+    }
+    .micuenta-menu {
+        width: 100%;
+        background-color: #1e1e2f;
+        padding: 20px;
+        color: white;
+        height: 50vh;
+    }
+    .micuenta-info {
+        width: 100%;
+        padding: 40px;
+        background-color: white;
+        height: 50vh;
+    }
 }

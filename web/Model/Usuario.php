@@ -5,5 +5,7 @@ class Usuario {
     public $email;
     public $telefono;
     public $contrasena;
+    public $imagen;
+
 }
 ?>

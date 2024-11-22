@@ -59,7 +59,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav mx-auto text-center">
                         <li class="nav-item ">
-                            <a class="nav-link" href="index.php?controller=productos&action=index">Producto</a>
+                            <a class="nav-link" href="/BCorsafe/producto">Producto</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Sobre Nosotros</a>
