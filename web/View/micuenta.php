@@ -32,18 +32,21 @@
         </div>
         <hr>
         <div class="perfil-imagen">
-                <h4>Foto de Perfil</h4>
-                <form action="/BCorsafe/usuario/subirImagen" method="POST" enctype="multipart/form-data">
-                    <div class="imagen-preview mb-3">
-                        <img id="imagenPreview" src="<?php echo $usuario->imagen?>" alt="Foto de Perfil" class="img-thumbnail" style="width: 150px; height: 150px;">
-                    </div>
-                    <div class="mb-3">
-                        <input type="file" name="imagenPerfil" id="imagenPerfil" accept="image/*" class="form-control-micuenta">
-                        <small class="text-muted">Tamaño máximo: 2 MB</small>
-                    </div>
-                    <button type="submit" class="btn btn-primary-micuenta">Subir Imagen</button>
-                </form>
-            </div>
+            <h4>Foto de Perfil</h4>
+            <form action="/BCorsafe/usuario/subirImagen" method="POST" enctype="multipart/form-data">
+                <div class="imagen-preview mb-3">
+                    <img id="imagenPreview" src="<?php echo htmlspecialchars($usuario->imagen). '?v=' . time(); ?>" 
+                        alt="Vista previa de tu foto de perfil" class="img-thumbnail"> <!-- El v = time() es para que el navegador piense que es una url y muestre la última version de la imagen ya que en la base de datos tienen el mismo nombre -->
+                </div>
+                <div class="fotoperfil-container mb-3">
+                    <label for="imagenPerfil" class="seleccionar-imagen">
+                        Seleccionar imagen
+                    </label>
+                    <input type="file" name="imagenPerfil" id="imagenPerfil" accept="image/*" class="form-control-micuenta">
+                    <small class="texto-maximo">Tamaño máximo: 2 MB</small>
+                </div>
+                <button type="submit" class="btn btn-primary-micuenta">Subir Imagen</button>
+            </form>
         </div>
     </div>
 </div>

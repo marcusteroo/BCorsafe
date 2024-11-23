@@ -98,38 +98,82 @@
 .micuenta-info p{
     font-size: 22px;
 }
-.perfil-imagen {
-    margin-top: 20px;
-    border: green solid 2px;
-    width: 30%;
-}
 
-.perfil-imagen h4 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
-}
 
-.imagen-preview img {
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%;
-}
 
-.form-control-micuenta {
-    max-width: 300px;
-    margin: 0 auto;
-}
 .derecha-micuenta{
-    border: red solid 2px;
     display: flex;
     flex-direction: column;
     width: 70%;
 }
 
+.perfil-imagen {
+    margin-top: 20px;
+    width: 70%;
+    margin-left: 30px;
+    padding: 20px;
+    
+}
+
+.perfil-imagen h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.imagen-preview img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  
+    border: 3px solid #ccc;
+}
+
+
+
+.seleccionar-imagen {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: white;
+    border: solid 1px black;
+    color: black;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.seleccionar-imagen:hover {
+    background-color: black;
+    border: solid 1px white;
+    color: white;
+}
+
+#imagenPerfil {
+    display: none; /* Oculta el input real */
+}
+
 .btn-primary-micuenta {
-    display: block;
-    margin: 10px auto 0 auto;
+    background-color: #EDE81A;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-primary-micuenta:hover {
+    background-color: #d9d415;
+    color: black;
+}
+
+.texto.maximo {
+    font-size: 12px;
+    color: #666;
 }
 @media (max-width: 768px){
     .micuenta-container {
@@ -147,12 +191,23 @@
         background-color: #1e1e2f;
         padding: 20px;
         color: white;
-        height: 50vh;
+        height: 40vh;
     }
     .micuenta-info {
         width: 100%;
-        padding: 40px;
         background-color: white;
-        height: 50vh;
+        text-align: center;
+    }
+    .derecha-micuenta{
+        width: 100%;
+    }
+    .perfil-imagen {
+        margin-top: 0px;
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px;
+        text-align: center;
+        margin-bottom: 20px;
+        
     }
 }

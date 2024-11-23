@@ -47,6 +47,7 @@ class UsuarioController {
             $_SESSION['usuario_id'] = $usuario['id_usuario']; 
             $_SESSION['usuario_nombre'] = $usuario['nombre'];
             $_SESSION['usuario_email'] = $usuario['email'];
+            $_SESSION['imagen_perfil']= $usuario['imagen'];
 
             header("Location: /BCorsafe/");
             exit;
@@ -116,6 +117,7 @@ class UsuarioController {
                     $_SESSION['usuario_id'] = $usuario['id_usuario'];
                     $_SESSION['usuario_nombre'] = $usuario['nombre'];
                     $_SESSION['usuario_email'] = $usuario['email'];
+                    $_SESSION['imagen_perfil']= $usuario['imagen'];
     
                     // Redirige al inicio
                     header("Location: /BCorsafe/");
@@ -168,8 +170,10 @@ class UsuarioController {
     
             // Guardar imagen
             $rutaDestino = "/BCorsafe/assets/img/"; 
+            $rutaDestino2 = __DIR__ . "/../../assets/img/";
             $nombreArchivo = "perfil_" . $_SESSION['usuario_id'] . "." . $extension;
             $rutaImagen = $rutaDestino.$nombreArchivo;
+            move_uploaded_file($imagen['tmp_name'], $rutaDestino2 . $nombreArchivo);
     
             // Actualizar ruta en la base de datos
             $usuarioDAO = new UsuarioDAO();

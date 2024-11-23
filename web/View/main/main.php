@@ -31,8 +31,14 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="bg-dark text-white py-2 fondo-iniciar">
             <div class="container-fluid d-flex justify-content-end texto-login">
                 <?php if (isset($_SESSION['usuario_id'])): ?>
-                    <!-- Si la sesión está activa, mostrar "Mi cuenta" -->
-                    <a href="/BCorsafe/usuario/miCuenta" class="text-white  d-none d-sm-inline">Mi cuenta</a>
+                    <!-- Si la sesión está activa, mostrar "Mi cuenta" y la imagen de perfil -->
+                    <a href="/BCorsafe/usuario/miCuenta" class="text-white d-flex align-items-center d-none d-sm-inline">
+                        <img src="<?php echo htmlspecialchars($_SESSION['imagen_perfil']). '?v=' . time(); ?>" 
+                            alt="Foto de perfil" 
+                            class="rounded-circle me-2" 
+                            style="width: 30px; height: 30px; object-fit: cover;">
+                        Mi cuenta
+                    </a>
                 <?php else: ?>
                     <!-- Si la sesión no está activa, mostrar "Iniciar sesión" y "Registrarse" -->
                     <a href="/BCorsafe/usuario/login" class="text-white  d-none d-sm-inline">INICIAR SESIÓN</a>
