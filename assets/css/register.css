@@ -30,3 +30,26 @@
     color: black;
     border: none;
 }
+.texto-login-reg{
+    color: white;
+}
+.texto-login-reg a{
+    color: rgb(156, 156, 199) !important;
+}
+.login-titulo{
+    color: white;
+    text-align: center;
+}
+.titulo-reg{
+    font-size: 37px;
+}
+.seccion-password{
+    background-image: url("/BCorsafe/assets/img/FondoLogin.webp");
+    height: 100vh;
+    max-width: 100% !important;
+    margin: 0px !important;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    padding-top: 50px;
+}

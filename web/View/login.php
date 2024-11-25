@@ -1,6 +1,6 @@
 <div class="altura-reg">
     <div class="form-container-reg">
-        <h1>Iniciar Sesión</h1>
+        <h1 class="login-titulo">Iniciar Sesión</h1>
 
         <?php if (isset($_SESSION['mensaje_error'])): ?>
             <div class="alert alert-danger"><?php echo $_SESSION['mensaje_error']; unset($_SESSION['mensaje_error']); ?></div>
@@ -20,7 +20,7 @@
             <button type="submit" class="btn btn-warning">Iniciar Sesión</button>
         </form>
 
-        <p class="mt-3">
+        <p class="mt-3 texto-login-reg">
             ¿No tienes una cuenta? <a href="/BCorsafe/usuario/registro">Regístrate aquí</a>.
         </p>
     </div>

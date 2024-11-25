@@ -12,7 +12,7 @@
     </div>
 </div>
 <div class="fondo-home">
-    <div class="container text-center seccion2">
+    <div class="container text-center seccion2" id="seccion-sobre">
         <h2 class="titulo-about">Sobre Nosotros</h2>
         <p class="p-about">Con más de 30 años, nos reinventamos uniendo nuestras pasiones: la comida y el gaming. Ahora ofrecemos hamburguesas gaming y cafés especiales, manteniendo la calidad y calidez de siempre, pero con un estilo más moderno. ¡Ven y vive esta nueva experiencia con nosotros!</p>
         <img src="/BCorsafe/assets/img/GAMING.png" alt="logo-gaming">

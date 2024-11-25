@@ -1,6 +1,6 @@
 <div class="altura-reg">
     <div class="form-container-reg">
-        <h2 class="text-center">Registro de Usuario</h2>
+        <h2 class="text-center titulo-reg">Registro de Usuario</h2>
         <?php if (!empty($errorMessage)): ?>
             <div class="alert alert-danger">
                 <?php echo htmlspecialchars($errorMessage); ?>
