@@ -22,7 +22,8 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/BCorsafe/assets/css/home.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/productos.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/register.css">
-    <link rel="stylesheet" href="/BCorsafe/assets/css/micuenta.css">      
+    <link rel="stylesheet" href="/BCorsafe/assets/css/micuenta.css">
+    <link rel="stylesheet" href="/BCorsafe/assets/css/producto_detalle.css">       
 
     
 </head>

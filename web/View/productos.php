@@ -26,15 +26,23 @@
                     <div class="checkboxes">
                         <?php
                         $ingredientes = ["Tomate", "Lechuga", "Huevo", "Queso", "Bacon"];
+                        
                         foreach ($ingredientes as $ingrediente) {
                             $checked = isset($_POST['ingredientes']) && in_array($ingrediente, $_POST['ingredientes']) ? 'checked' : '';
-                            echo '<div class="checkbox-custom"><input type="checkbox" name="ingredientes[]" value="' . htmlspecialchars($ingrediente) . '" ' . $checked . '> ' . htmlspecialchars($ingrediente) . '</div>';
+                            
+                            echo '
+                            <div class="checkbox-custom">
+                                <input type="checkbox" 
+                                    name="ingredientes[]" 
+                                    value="' . htmlspecialchars($ingrediente) . '" 
+                                    ' . $checked . '> 
+                                <label>' . htmlspecialchars($ingrediente) . '</label>
+                            </div>';
                         }
                         ?>
                     </div>
                 </div>
 
-                <!-- Botón para aplicar filtros -->
                 <button type="submit" class="btn btn-primary w-100 boton-filtros">Aplicar filtros</button>
             </form>
         </div>
@@ -50,7 +58,7 @@
                                 <h5 class="producto-nombre"><?php echo htmlspecialchars($producto->nombre); ?></h5>
                                 <p class="producto-descripcion"><?php echo nl2br(htmlspecialchars($producto->descripcion)); ?></p>
                                 <div class="producto-precio"><?php echo ($producto->precio); ?>€</div>
-                                <button class="btn btn-success btn-carrito w-100 mt-3">Añadir al carrito</button>
+                                <a href="/BCorsafe/productos/detalle?id=<?php echo urlencode($producto->id_producto); ?>" class="btn btn-success btn-carrito w-100 mt-3">Ver más</a>
                             </div>
                         </div>
                     </div>

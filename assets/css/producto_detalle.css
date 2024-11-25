@@ -1,0 +1,41 @@
+.imagen-detalle{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px black;
+    
+}
+.fondo-detalle{
+    background-color:#161517;
+}
+.info-producto-detalle{
+    color: white;
+    font-family: "Saira", sans-serif;
+    display: flex;
+    flex-direction: column;  
+    justify-content: space-between; 
+    height: 100%;  
+}
+.info-producto-detalle h1{
+    margin-top: 10px;
+    font-weight: bold;
+}
+.info-producto-detalle h3{
+    font-weight: bold;
+    color: #EDE81A;
+    margin-top: 5px;
+}
+.boton-añadir-carrito-detalles{
+    margin-top: auto;
+    color: black;
+    background-color: #EDE81A;
+    border: none;
+}
+.boton-añadir-carrito-detalles:hover{
+    color: black;
+    background-color: #EDE81A;
+}
+.boton-añadir-carrito-detalles:active{
+    color: black!important;
+    background-color: #EDE81A!important;
+}

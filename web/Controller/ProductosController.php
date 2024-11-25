@@ -36,5 +36,31 @@ class ProductosController {
         include_once("web/View/main/main.php");
         include_once "web/View/productos.php";
     }
+    public function detalle() {
+        if (!isset($_GET['id']) || empty($_GET['id'])) {
+            header("Location: /BCorsafe/productos");
+            exit();
+        }
+    
+        $idProducto = $_GET['id'];
+        $productoDAO = new ProductoDAO();
+    
+        // Esto es para obtener los datos del producto
+        $producto = $productoDAO->getProductoById($idProducto);
+        if (!$producto) {
+            // Redirigir si el producto no existe
+            header("Location: /BCorsafe/productos");
+            exit();
+        }
+    
+        // esto es para obtener los ingredientes
+        $ingredientes = $productoDAO->getIngredientesByProductoId($idProducto);
+    
+        // Renderizar la vista
+        $titulo = "Detalle del Producto";
+        $vista = 'web/View/producto_detalle.php';
+        include_once("web/View/main/main.php");
+    }
+    
 }
 ?>
