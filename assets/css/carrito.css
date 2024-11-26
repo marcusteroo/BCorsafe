@@ -1,0 +1,61 @@
+/* Estilo para la sección del carrito (más pequeña y flotante) */
+.seccion-carrito-carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    justify-content: flex-start; /* Alinea los productos al principio */
+    width: 500px; /* Ancho fijo para el carrito */
+    max-height: 80vh; /* Limita la altura para que no ocupe toda la pantalla */
+    overflow-y: auto; /* Permite que los productos se deslicen si hay muchos */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    padding: 20px;
+    position: fixed; /* Hace que se quede fijo en la pantalla */
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el centrado exacto */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.producto-carrito-carrito {
+    display: flex;
+    align-items: center; /* Alinea la imagen y los detalles de manera vertical */
+    margin-bottom: 20px; /* Espacio entre productos */
+    border: 1px solid #ddd; /* Borde alrededor del producto */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.producto-imagen-carrito {
+    margin-right: 20px; /* Espacio entre la imagen y los detalles */
+}
+
+.producto-imagen-carrito img {
+    width: 150px; /* Aumento el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.producto-detalles-carrito {
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-nombre-carrito {
+    font-size: 24px; /* Aumento el tamaño del nombre */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.producto-cantidad-carrito,
+.producto-subtotal-carrito {
+    font-size: 18px; /* Aumento el tamaño de la cantidad y subtotal */
+    margin-bottom: 5px;
+}
+
+.total-carrito {
+    margin-top: 20px;
+    font-size: 24px; /* Aumento el tamaño del total */
+    font-weight: bold;
+}
