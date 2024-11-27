@@ -83,7 +83,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             </a>
                         </li>
                         <li class="nav-item d-lg-none">
-                            <a href="#" class="nav-link text-white">
+                            <a href="/BCorsafe/pedidos/verCarrito" class="nav-link text-white">
                                 <i class="bi bi-cart"></i> Carrito
                             </a>
                         </li>
@@ -108,20 +108,21 @@ if (session_status() == PHP_SESSION_NONE) {
                     <a href="#" class="nav-link text-white me-3 ">
                         <i class="bi bi-search"></i> 
                     </a>
-                    <a href="#" class="nav-link text-white me-3 ">
-                        <i class="bi bi-cart"></i> 
+                    <a href="/BCorsafe/pedidos/verCarrito" class="nav-link text-white me-3 " id="abrir-carrito">
+                        <i class="bi bi-cart"></i>
+                        <!-- Aquí mostramos la cantidad de productos en el carrito -->
+                        <?php if ($cantidad_productos > 0): ?>
+                            <span class="cantidad-carrito"><?php echo $cantidad_productos; ?></span>
+                        <?php endif; ?>
                     </a>
                 </div>
             </div>
         </nav>
 
     </header>
-
     <main>
-        
         <?php include_once $vista; ?>
     </main>
-
     <footer>
         <div class="footer-container">
             <div class="fondo-footer">

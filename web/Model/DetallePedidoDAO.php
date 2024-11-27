@@ -45,5 +45,14 @@ class DetallePedidoDAO extends BaseDAO {
         }
         return $detalles;
     }
+    //Esta funcion de contarDetallesPorPedido la he echo para poder contar cuantos pedidos osea cuantos diferentes productos tiene un usuario en la cesta
+    public function contarDetallesPorPedido($id_pedido) {
+        $stmt = $this->db->prepare("SELECT COUNT(*) AS total_productos FROM " . $this->getTableName() . " WHERE id_pedido = :id_pedido");
+        $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $resultado['total_productos'];
+    }
 }
 ?>

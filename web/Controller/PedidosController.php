@@ -17,9 +17,7 @@ class PedidosController {
         $id_producto = $_POST['id_producto'];
         $ingredientes_custom = isset($_POST['ingredientes_custom']) ? $_POST['ingredientes_custom'] : [];
         $cantidad = $_POST['cantidad'] ?? 1;
-    
         $ingredientes_custom = array_unique($ingredientes_custom);
-    
         $ingredientes_custom_str = implode(',', $ingredientes_custom);
     
         $pedidoDAO = new PedidoDAO();     
@@ -42,12 +40,19 @@ class PedidosController {
         $precio_final = $producto->precio;
         
         if (!empty($ingredientes_custom)) {
+            $ingredientes_finales = [];
             foreach ($ingredientes_nombres as $ingrediente) {
-                if (!in_array($ingrediente, $ingredientes_custom)) {
+                if (in_array($ingrediente, $ingredientes_custom)) {
+                    $ingredientes_finales[] = $ingrediente;
+                } else {
                     $precio_final -= 2;
                 }
             }
+        } else {
+            $ingredientes_finales = [];
         }
+        
+        $ingredientes_custom_str = implode(',', $ingredientes_finales);
     
         $detallePedidoDAO->agregarDetalle(
             $pedido->id_pedido,
@@ -75,10 +80,12 @@ class PedidosController {
         $pedido = $pedidoDAO->obtenerPedidoEnProceso($id_usuario);
         if (!$pedido) {
             $detalles = [];
+            $cantidad_productos = 0;
         } else {
             $detalles = $detallePedidoDAO->obtenerDetallesPorPedido($pedido->id_pedido);
-        }
+            $cantidad_productos = $detallePedidoDAO->contarDetallesPorPedido($pedido->id_pedido);
 
+        }
         $titulo = "Carrito de Compras";
         $vista = "web/View/carrito.php";
         include_once("web/View/main/main.php");

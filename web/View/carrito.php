@@ -1,21 +1,24 @@
-<div class="container mt-5">
-    <h2><?php echo $titulo; ?></h2>
+<div class="container mt-5 carrito-container">
+    <h2 class="text-center mb-4 carrito-titulo"><?php echo $titulo; ?></h2>
+
     <?php if (empty($detalles)): ?>
-        <p>No tienes productos en el carrito.</p>
+        <div class="alert alert-warning text-center carrito-alerta">
+            <p>No tienes productos en el carrito.</p>
+        </div>
     <?php else: ?>
-        <table class="table table-bordered">
-            <thead>
+        <table class="table-bordered carrito-tabla">
+            <thead class="thead-dark carrito-thead">
                 <tr>
-                    <th>Producto</th>
-                    <th>Imagen</th> <!-- Nueva columna para la imagen -->
-                    <th>Cantidad</th>
-                    <th>Precio Unitario</th>
-                    <th>Ingredientes</th>
-                    <th>Subtotal</th>
-                    <th>Acciones</th>
+                    <th class="carrito-th">Producto</th>
+                    <th class="carrito-th">Imagen</th> <!-- Nueva columna para la imagen -->
+                    <th class="carrito-th">Cantidad</th>
+                    <th class="carrito-th">Precio</th>
+                    <th class="carrito-th">Ingredientes</th>
+                    <th class="carrito-th">Subtotal</th>
+                    <th class="carrito-th">Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="carrito-tbody">
                 <?php 
                 $total = 0;
                 foreach ($detalles as $detalle): 
@@ -25,63 +28,32 @@
                     // Obtener la imagen del producto
                     $producto = $productoDAO->getProductoById($detalle->id_producto); // Aquí ya está inicializado
                 ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($detalle->nombre_producto); ?></td>
+                    <tr class="carrito-fila">
+                        <td class="carrito-td-nombre"><?php echo htmlspecialchars($detalle->nombre_producto); ?></td>
 
                         <!-- Mostrar la imagen del producto -->
-                        <td>
+                        <td class="carrito-td">
                             <img src="<?php echo htmlspecialchars($producto->img); ?>" 
                                  alt="<?php echo htmlspecialchars($producto->nombre_producto); ?>" 
-                                 class="img-thumbnail" 
-                                 width="100px">
+                                 class="carrito-img" 
+                                 width="200px">
                         </td>
 
-                        <td><?php echo $detalle->cantidad; ?></td>
-                        <td>€<?php echo number_format($detalle->precio_pedido, 2); ?></td>
-                        <td><?php echo htmlspecialchars($detalle->ingredientes_custom ?: 'Todos los ingredientes'); ?></td>
-                        <td>€<?php echo number_format($subtotal, 2); ?></td>
-                        <td>
-                            <form method="post" action="/editar_ingredientes">
+                        <td class="carrito-td"><?php echo $detalle->cantidad; ?></td>
+                        <td class="carrito-td"><?php echo number_format($detalle->precio_pedido, 2); ?>€</td>
+                        <td class="carrito-td"><?php echo htmlspecialchars($detalle->ingredientes_custom ?: 'Todos los ingredientes'); ?></td>
+                        <td class="carrito-td"><?php echo number_format($subtotal, 2); ?>€</td>
+                        <td class="carrito-td">
+                            <form method="post" action="/editar_ingredientes" class="carrito-form">
                                 <input type="hidden" name="id_detalle" value="<?php echo $detalle->id_detalle; ?>">
-                                <button type="submit" class="btn btn-primary btn-sm">Editar Ingredientes</button>
+                                <button type="submit" class="btn btn-primary btn-sm carrito-btn">Editar Ingredientes</button>
+                                <a href="#">Quitar producto</a>
                             </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <h4>Total: €<?php echo number_format($total, 2); ?></h4>
+        <h4 class="carrito-total">Total: €<?php echo number_format($total, 2); ?></h4>
     <?php endif; ?>
 </div>
-<div class="seccion-carrito-carrito">
-    <?php 
-        $total = 0;
-        foreach ($detalles as $detalle): 
-            $subtotal = $detalle->cantidad * $detalle->precio_pedido;
-            $total += $subtotal;
-
-            // Obtener la imagen del producto
-            $producto = $productoDAO->getProductoById($detalle->id_producto); 
-    ?>
-        <div class="producto-carrito-carrito">
-            <!-- Imagen del producto -->
-            <div class="producto-imagen-carrito">
-                <img src="<?php echo $producto->img; ?>" alt="Imagen de <?php echo $producto->nombre; ?>">
-            </div>
-
-            <!-- Detalles del producto -->
-            <div class="producto-detalles-carrito">
-                <p class="producto-nombre-carrito"><?php echo $producto->nombre; ?></p>
-                <p class="producto-cantidad-carrito">Cantidad: <?php echo $detalle->cantidad; ?></p>
-                <p class="producto-subtotal-carrito">Subtotal: $<?php echo number_format($subtotal, 2); ?></p>
-            </div>
-        </div>
-    <?php endforeach; ?>
-
-    <!-- Total -->
-    <div class="total-carrito">
-        <p>Total: $<?php echo number_format($total, 2); ?></p>
-    </div>
-</div>
-
-
