@@ -2,7 +2,8 @@
 include_once 'web/Model/PedidoDAO.php';
 include_once 'web/Model/DetallePedidoDAO.php';
 include_once 'web/Model/ProductoDAO.php';
-class PedidosController {
+include_once 'BaseController.php';
+class PedidosController extends BaseController {
     //Esta es una de las funciones mas complejas que tengo, lo que hace es agregar el producto al carrito con sus correspoondientes ingredientes que ha selecionado el usuario, utilizo un array_unique para eliminar los ingredientes duplicados luego convierto esta array en una cadena de texo separada por una coma para insertalo de manera mas ordenada a la base de datos, luego obtengo el pedido luego lo creo, después de hacer eso obtengo los ingredientes de ese producto para compararlos con los que el usuario ha seleccionado para ver que si uno no esta seleccionado se le restan 2€ al precio total.
     public function agregarAlCarrito() {
         if (session_status() == PHP_SESSION_NONE) {
@@ -80,10 +81,8 @@ class PedidosController {
         $pedido = $pedidoDAO->obtenerPedidoEnProceso($id_usuario);
         if (!$pedido) {
             $detalles = [];
-            $cantidad_productos = 0;
         } else {
             $detalles = $detallePedidoDAO->obtenerDetallesPorPedido($pedido->id_pedido);
-            $cantidad_productos = $detallePedidoDAO->contarDetallesPorPedido($pedido->id_pedido);
 
         }
         $titulo = "Carrito de Compras";

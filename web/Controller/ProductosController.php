@@ -1,7 +1,7 @@
 <?php
 include_once 'web/Model/ProductoDAO.php';
-
-class ProductosController {
+include_once 'BaseController.php';
+class ProductosController extends BaseController {
     public function index() {
         $productoDAO = new ProductoDAO();
         $productos = $productoDAO->obtenerTodos();

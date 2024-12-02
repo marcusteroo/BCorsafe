@@ -1,101 +1,143 @@
 .carrito-container {
-    max-width: 100%;
+    max-width: 70%;
     margin: 0 auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
     background-color: #161517;
+    color: white;
+    border: 2px solid blue;
+    font-family: "Saira", sans-serif;
+
+}
+
+.carrito-grid {
+    flex: 2;
+    border: 2px solid green;
+}
+
+.carrito-item {
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-}
-
-.carrito-titulo {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
-    padding-top: 10px;
-    color: white;
-}
-.carrito-tbody{
-    background-color: #161517 !important;
-}
-.carrito-alerta {
-    font-size: 1.2rem;
-    background-color: #ffdd57;
-    border-radius: 5px;
-    padding: 15px;
-}
-
-.carrito-tabla {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #161517 !important;
+    text-align: center;
     
-
     
 }
-
-.carrito-thead {
-    background-color: #161517 !important;
-    color: white;
-}
-
-.carrito-th {
-    padding: 10px;
-    text-align: center;
-    font-size: 20px;
-}
-
-.carrito-td {
-    padding: 10px;
-    text-align: center;
-    color: #ffdd57 !important;
-}
-.carrito-td-nombre {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffdd57 !important;
-    text-align: center;
-}
-
-
 
 .carrito-img {
-    border-radius: 5px;
+    width: 80%;
+    height: auto;
+}
+.carrito-imagen{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
 }
 
-.carrito-btn {
+.carrito-info {
+    padding: 15px;
+    flex-grow: 1;
+    border: 2px solid purple;
+    text-align: left;
+    font-family: "Saira", sans-serif;
+    max-width: 400px;
+    
+
+}
+.carrito-info-img{
+    display: flex;
+}
+
+.carrito-nombre {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #EDE81A;
+    margin-top: 10px;
+}
+
+.carrito-ingredientes, 
+.carrito-precio, 
+.carrito-cantidad, 
+.carrito-subtotal {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.carrito-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.carrito-resumen {
+    flex: 1;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    border: 2px solid red;
+    
+
+}
+
+.carrito-total, 
+.carrito-total-final {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.carrito-envio, 
+.carrito-iva {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.carrito-envio-gratis {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.carrito-pagar {
+    width: 100%;
     background-color: #007bff;
     color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.carrito-btn:hover {
+.carrito-pagar:hover {
     background-color: #0056b3;
 }
+.carrito-titulo{
+    background-color: #161517;
+    color: white;
+    margin: 0 !important;
+    padding-top: 10px !important;
+}
 
-.carrito-total {
-    font-size: 1.5rem;
-    text-align: right;
-    font-weight: bold;
+.carrito-subtotal{
+    font-size: 1.7rem;
     margin-top: 20px;
 }
-.carrito-form{
-    display: flex;
-    flex-direction: column;
+.carrito-ingredientes{
+    height: 60px !important;
+    border: red 2px solid;
+    margin-top: 20px !important;
 }
-#abrir-carrito {
-    position: relative;
+.carrito-cantidad{
+    margin-top: 10px;
 }
-
-.cantidad-carrito {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 5px 10px;
-    font-size: 14px;
-    font-weight: bold;
-}
-

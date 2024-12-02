@@ -111,8 +111,8 @@ if (session_status() == PHP_SESSION_NONE) {
                     <a href="/BCorsafe/pedidos/verCarrito" class="nav-link text-white me-3 " id="abrir-carrito">
                         <i class="bi bi-cart"></i>
                         <!-- Aquí mostramos la cantidad de productos en el carrito -->
-                        <?php if ($cantidad_productos > 0): ?>
-                            <span class="cantidad-carrito"><?php echo $cantidad_productos; ?></span>
+                        <?php if ($this->getCantidadProductos() > 0): ?>
+                            <span class="cantidad-carrito"><?php echo $this->getCantidadProductos(); ?></span>
                         <?php endif; ?>
                     </a>
                 </div>

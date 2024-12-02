@@ -1,6 +1,7 @@
 <?php
 include_once 'web/Model/UsuarioDAO.php';
-class UsuarioController {
+include_once 'BaseController.php';
+class UsuarioController extends BaseController {
 
     public function registro() {
         $titulo="Registrarse";
@@ -8,7 +9,9 @@ class UsuarioController {
         include_once("web/View/main/main.php");
     }
     public function miCuenta(){
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         if (!isset($_SESSION['usuario_id'])) {
             header("Location: /BCorsafe/usuario/login");
             exit;
