@@ -54,5 +54,24 @@ class DetallePedidoDAO extends BaseDAO {
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
         return $resultado['total_productos'];
     }
+    public function eliminarDetalle($id_detalle) {
+        $stmt = $this->db->prepare("DELETE FROM Detalles_Pedido WHERE id_detalle = :id_detalle");
+        $stmt->bindParam(':id_detalle', $id_detalle, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+    public function actualizarDetalle($id_detalle, $cantidad, $precio_pedido, $ingredientes_custom) {
+        $stmt = $this->db->prepare("
+            UPDATE " . $this->getTableName() . " 
+            SET cantidad = :cantidad, 
+                precio_pedido = :precio_pedido, 
+                ingredientes_custom = :ingredientes_custom
+            WHERE id_detalle = :id_detalle
+        ");
+        $stmt->bindParam(':id_detalle', $id_detalle, PDO::PARAM_INT);
+        $stmt->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
+        $stmt->bindParam(':precio_pedido', $precio_pedido);
+        $stmt->bindParam(':ingredientes_custom', $ingredientes_custom, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }
 ?>

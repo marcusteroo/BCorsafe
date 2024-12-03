@@ -89,5 +89,89 @@ class PedidosController extends BaseController {
         $vista = "web/View/carrito.php";
         include_once("web/View/main/main.php");
     }
+    public function quitarProducto() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        } 
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
+    
+        $id_detalle = $_GET['id'];
+        $detallePedidoDAO = new DetallePedidoDAO();
+    
+        $detallePedidoDAO->eliminarDetalle($id_detalle);
+    
+        header("Location: /BCorsafe/pedidos/verCarrito");
+        exit();
+    }
+    public function editarProducto() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
+    
+        $id_detalle = $_POST['id_detalle']; 
+        $detallePedidoDAO = new DetallePedidoDAO();
+        $productoDAO = new ProductoDAO();
+        $detalle_edit = $detallePedidoDAO->obtenerPorId($id_detalle);
+        $id_producto_edit = $detalle_edit->id_producto;
+        $producto_edit = $productoDAO->getProductoById($id_producto_edit);
+        $ingredientes_totales = $productoDAO->getIngredientesByProductoId($detalle_edit->id_producto);
+        $ingredientes_seleccionados = explode(',', $detalle_edit->ingredientes_custom);
+    
+        $titulo = "Editar Producto en el Carrito";
+        $vista = "web/View/producto_detalle_edit.php"; 
+        include_once("web/View/main/main.php");
+    }
+    public function actualizarCarrito() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
+    
+        $id_detalle = $_POST['id_detalle'];
+        $cantidad = $_POST['cantidad'];
+        $ingredientes_custom = isset($_POST['ingredientes_custom']) ? $_POST['ingredientes_custom'] : [];
+        $ingredientes_custom = array_unique($ingredientes_custom);
+        $ingredientes_custom_str = implode(',', $ingredientes_custom);
+    
+        $detallePedidoDAO = new DetallePedidoDAO();
+        $detalle = $detallePedidoDAO->obtenerPorId($id_detalle);
+        
+        $productoDAO = new ProductoDAO();
+        $producto = $productoDAO->getProductoById($detalle->id_producto);
+        
+        if (!$producto) {
+            echo "Producto no encontrado";
+            exit();
+        }
+    
+        $productoDAO = new ProductoDAO();
+        $ingredientes_producto = $productoDAO->getIngredientesByProductoId($producto->id_producto);
+    
+        $precio_final = $producto->precio;
+        foreach ($ingredientes_producto as $ingrediente) {
+            if (!in_array($ingrediente->nombre_ingrediente, $ingredientes_custom)) {
+                $precio_final -= 2;  
+            }
+        }
+    
+        $detallePedidoDAO->actualizarDetalle($id_detalle, $cantidad, $precio_final, $ingredientes_custom_str);
+    
+        header("Location: /BCorsafe/pedidos/verCarrito");
+        exit();
+    }
+    
+    
 }
 ?>

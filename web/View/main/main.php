@@ -24,7 +24,8 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/BCorsafe/assets/css/register.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/micuenta.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/producto_detalle.css">
-    <link rel="stylesheet" href="/BCorsafe/assets/css/carrito.css">       
+    <link rel="stylesheet" href="/BCorsafe/assets/css/carrito.css">
+    <link rel="stylesheet" href="/BCorsafe/assets/css/metodopago.css">      
 
     
 </head>
@@ -108,7 +109,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <a href="#" class="nav-link text-white me-3 ">
                         <i class="bi bi-search"></i> 
                     </a>
-                    <a href="/BCorsafe/pedidos/verCarrito" class="nav-link text-white me-3 " id="abrir-carrito">
+                    <a href="/BCorsafe/pedidos/verCarrito" class="nav-link text-white me-3 position-relative" id="abrir-carrito">
                         <i class="bi bi-cart"></i>
                         <!-- Aquí mostramos la cantidad de productos en el carrito -->
                         <?php if ($this->getCantidadProductos() > 0): ?>

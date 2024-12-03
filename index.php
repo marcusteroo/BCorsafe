@@ -5,6 +5,7 @@ include_once("web/Controller/HomeController.php");
 include_once("web/Controller/UsuarioController.php");
 include_once("web/Controller/PedidosController.php");
 include_once("web/Controller/BaseController.php");
+include_once("web/Controller/MetodosPagoController.php");
 
 // Obtiene la URL completa después de "index.php?url="
 $url = isset($_GET['url']) ? $_GET['url'] : '';

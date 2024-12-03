@@ -4,9 +4,11 @@
         <div class="micuenta-menu">
             <h2>Mi Cuenta</h2>
             <ul>
+                <li><a href="/BCorsafe/usuario/miCuenta">Mi Perfil</a></li>
+                <hr>
                 <li><a href="/BCorsafe/usuario/pedidos">Mis Pedidos</a></li>
                 <hr>
-                <li><a href="/BCorsafe/usuario/metodos-pago">Métodos de Pago</a></li>
+                <li><a href="/BCorsafe/metodosPago/listar">Métodos de Pago</a></li>
                 <hr>
                 <li>
                     <a href="/BCorsafe/usuario/cerrarSesion" class="cerrar-sesion">
