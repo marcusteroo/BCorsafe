@@ -51,6 +51,7 @@ class PedidoDAO extends BaseDAO {
         $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
         $stmt->execute();
     }
+    
 
 }
 ?>

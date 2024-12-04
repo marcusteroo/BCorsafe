@@ -21,14 +21,20 @@
     <div class="derecha-micuenta">
         <!-- parte derecha -->
         <div class="container-metodopago">
-            <h2 class="titulo-metodopago">Mis Métodos de Pago</h2>
+            
             <?php if (!empty($metodos_pago)): ?>
+                <h2 class="titulo-metodopago">Mis Métodos de Pago</h2>
                 <ul class="list-group-metodopago">
                     <?php foreach ($metodos_pago as $metodo): ?>
                         <li class="list-group-item-metodopago">
-                            <strong>Tipo:</strong> <?php echo htmlspecialchars($metodo->tipo_pago); ?><br>
-                            <strong>Número:</strong> **** **** **** <?php echo substr(htmlspecialchars($metodo->numero_tarjeta), -4); ?><br>
-                            <strong>Expira:</strong> <?php echo htmlspecialchars($metodo->fecha_expiracion); ?>
+                            <div class="container1-metodos">
+                                <strong>Tipo:</strong> <?php echo htmlspecialchars($metodo->tipo_pago); ?><br>
+                                <strong>Número:</strong> **** **** **** <?php echo substr(htmlspecialchars($metodo->numero_tarjeta), -4); ?><br>
+                                <strong>Expira:</strong> <?php echo htmlspecialchars($metodo->fecha_expiracion); ?>
+                            </div>
+                            <div class="container2-metodos">
+                                <img src="/BCorsafe/assets/img/<?php echo htmlspecialchars($metodo->tipo_pago);?>.svg" alt="Imagen<?php echo htmlspecialchars($metodo->tipo_pago);?>">
+                            </div>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -57,20 +63,20 @@
                 <h2 class="titulo-agregar-metodopago">Agregar Método de Pago</h2>
                 <form id="formulario-agregar-metodopago" style="display: none;" method="POST" action="/BCorsafe/metodosPago/agregar">
                     <div class="form-group-metodopago">
-                        <label for="numero_tarjeta_nuevo" class="label-metodopago">Número de Tarjeta:</label>
+                        <label for="numero_tarjeta_nuevo" class="label-metodopago">Tarjeta de crédito:</label>
                         <div class="input-container-metodo">
-                            <input type="text" id="numero_tarjeta_nuevo" name="numero_tarjeta" class="form-control-metodopago" maxlength="16" required pattern="\d{16}" title="Debe contener 16 dígitos">
+                            <input type="text" placeholder="Número de Tarjeta" id="numero_tarjeta_nuevo" name="numero_tarjeta" class="form-control-metodopago" maxlength="16" required pattern="\d{16}" title="Debe contener 16 dígitos">
                             <img id="tipo_tarjeta_img_nuevo" src="" alt="Tipo de Tarjeta" class="tipo-tarjeta-icono" style="display: none;">
                         </div>
                     </div>
                     <input type="hidden" id="tipo_pago_nuevo" name="tipo_pago"> 
-                    <div class="form-group-metodopago">
-                        <label for="fecha_expiracion" class="label-metodopago">Fecha de Expiración:</label>
-                        <input type="month" id="fecha_expiracion" name="fecha_expiracion" class="form-control-metodopago" required>
-                    </div>
-                    <div class="form-group-metodopago">
-                        <label for="codigo_seguridad" class="label-metodopago">Código de Seguridad (CVV):</label>
-                        <input type="text" id="codigo_seguridad" name="codigo_seguridad" class="form-control-metodopago" maxlength="3" required pattern="\d{3}" title="Debe contener 3 dígitos">
+                    <div class="fecha-cvv">
+                        <div class="form-group-metodopago">
+                            <input type="text"  placeholder="Fecha de vencimiento (MM / AA)" id="fecha_expiracion" name="fecha_expiracion" class="form-control-metodopago" required>
+                        </div>
+                        <div class="form-group-metodopago">
+                            <input type="text" placeholder="Código de seguridad" id="codigo_seguridad" name="codigo_seguridad" class="form-control-metodopago" maxlength="3" required pattern="\d{3}" title="Debe contener 3 dígitos">
+                        </div>
                     </div>
                     <button type="submit" class="btn-metodopago">Agregar Método de Pago</button>
                 </form>

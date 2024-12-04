@@ -109,12 +109,16 @@
 }
 
 .carrito-pagar {
+    display: inline-block;
     width: 100%;
     background-color: #EDE81A;
     color: black;
+    text-align: center;
     padding: 10px;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
     cursor: pointer;
     border: none!important;
     transition: all 0.3s ease; 

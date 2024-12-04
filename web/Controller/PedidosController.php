@@ -2,6 +2,7 @@
 include_once 'web/Model/PedidoDAO.php';
 include_once 'web/Model/DetallePedidoDAO.php';
 include_once 'web/Model/ProductoDAO.php';
+include_once 'web/Model/MetodoPagoDAO.php';
 include_once 'BaseController.php';
 class PedidosController extends BaseController {
     //Esta es una de las funciones mas complejas que tengo, lo que hace es agregar el producto al carrito con sus correspoondientes ingredientes que ha selecionado el usuario, utilizo un array_unique para eliminar los ingredientes duplicados luego convierto esta array en una cadena de texo separada por una coma para insertalo de manera mas ordenada a la base de datos, luego obtengo el pedido luego lo creo, después de hacer eso obtengo los ingredientes de ese producto para compararlos con los que el usuario ha seleccionado para ver que si uno no esta seleccionado se le restan 2€ al precio total.
@@ -171,6 +172,45 @@ class PedidosController extends BaseController {
         header("Location: /BCorsafe/pedidos/verCarrito");
         exit();
     }
+    public function PedidoCompra() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
+    
+        $detallePedidoDAO = new DetallePedidoDAO();
+        $productoDAO = new ProductoDAO(); // Asegúrate de tener acceso a los productos
+        $metodoPagoDAO = new MetodoPagoDAO();
+        $id_usuario = $_SESSION['usuario_id'];
+        $metodos_pago = $metodoPagoDAO->obtenerMetodosPorUsuario($id_usuario);
+        $usuarioDAO = new UsuarioDAO();
+        $usuario = $usuarioDAO->obtenerPorId($id_usuario);
+        $pedidoDAO = new PedidoDAO();
+        $pedido = $pedidoDAO->obtenerPorId($id_usuario);
+        $pedidos = $pedidoDAO->obtenerPedidoEnProceso($id_usuario);
+        
+        if (!$pedidos) {
+            $detalles = [];
+        } else {
+            // Obtener los detalles del pedido
+            $detalles = $detallePedidoDAO->obtenerDetallesPorPedido($pedidos->id_pedido);
+            
+            // Agregar información del producto a cada detalle
+            foreach ($detalles as $detalle) {
+                $producto = $productoDAO->obtenerPorId($detalle->id_producto); // Obtener los datos del producto
+                $detalle->producto = $producto; // Añadir el objeto producto al detalle
+            }
+        }
+    
+        $titulo = "Finalizar Compra";
+        $vista = "web/View/pagina-compra.php";
+        include_once("web/View/main/main.php");
+    }
+    
     
     
 }

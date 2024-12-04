@@ -29,9 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputTipoTarjetaEditar = document.getElementById("tipo_pago_editar");
 
     if (formularioAgregar) {
+        formularioAgregar.style.display="block"
         document.getElementById("numero_tarjeta_nuevo").addEventListener("input", function (e) {
             const numeroTarjeta = e.target.value.replace(/\s+/g, ""); 
             const tipoTarjeta = detectarTipoTarjeta(numeroTarjeta);
+            
 
             if (tipoTarjeta) {
                 iconoTarjetaNuevo.src = '/BCorsafe/assets/img/' + tipoTarjeta.toLowerCase() + '.svg';
@@ -60,3 +62,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+//Este código sirve para autorrelenar la fecha de vencimiento en el input con el formato correcto
+const fechaExpiracionInput = document.getElementById('fecha_expiracion');
+
+    fechaExpiracionInput.addEventListener('input', (e) => {
+        let valor = e.target.value.replace(/\D/g, ''); 
+        if (valor.length >= 3) {
+            valor = valor.slice(0, 2) + '/' + valor.slice(2); 
+        }
+        if (valor.length > 5) {
+            valor = valor.slice(0, 5); 
+        }
+        e.target.value = valor;
+    });
+
+    fechaExpiracionInput.addEventListener('blur', (e) => {
+        let valor = e.target.value;
+        if (valor.length === 4 && valor.includes('/')) {
+            const [mes, anio] = valor.split('/');
+            e.target.value = (mes.length === 1 ? '0' + mes : mes) + '/' + anio; 
+        }
+    });

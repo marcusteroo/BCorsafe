@@ -1,13 +1,15 @@
 .container-metodopago {
-    max-width: 800px;
+    max-width: 500px;
+    width: 100%;
     margin: auto;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin-top: 5%;
+
 }
 
-/* Title */
 .titulo-metodopago,
 .titulo-agregar-metodopago {
     text-align: center;
@@ -15,9 +17,9 @@
     color: #444;
     margin-bottom: 20px;
     font-weight: bold;
+
 }
 
-/* List group */
 .list-group-metodopago {
     list-style: none;
     padding: 0;
@@ -31,6 +33,29 @@
     padding: 15px;
     margin-bottom: 10px;
     transition: all 0.3s;
+    display: flex; 
+    align-items: center;
+}
+
+.container1-metodos {
+    flex: 7; 
+    max-width: 100%; 
+    height: auto; 
+    justify-content: center; 
+    padding: 5px; 
+    gap: 4px; 
+}
+
+.container2-metodos {
+    flex: 3; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.container2-metodos img {
+    max-width: 60%;
+    height: auto; 
 }
 
 .list-group-item-metodopago:hover {
@@ -38,7 +63,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Labels and inputs */
+
 .label-metodopago {
     font-weight: bold;
     margin-bottom: 5px;
@@ -67,8 +92,8 @@
 /* Buttons */
 .btn-metodopago {
     display: inline-block;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #EDE81A;
+    color: black;
     border: none;
     padding: 10px 15px;
     font-size: 1em;
@@ -79,7 +104,7 @@
 }
 
 .btn-metodopago:hover {
-    background-color: #0056b3;
+    background-color: #ede91aab;
     transform: translateY(-2px);
 }
 

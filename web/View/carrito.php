@@ -57,7 +57,7 @@
                 </div>
                 <hr>
                 <h4 class="carrito-total-final">Total Estimado: <?php echo number_format($total, 2); ?>€</h4>
-                <button class="carrito-pagar">Pagar</button>
+                <a href="/BCorsafe/pedidos/PedidoCompra" class="carrito-pagar">Pagar</a>
             </div>
         <?php endif; ?>
     </div>
