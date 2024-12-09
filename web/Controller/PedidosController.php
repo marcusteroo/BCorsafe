@@ -183,7 +183,7 @@ class PedidosController extends BaseController {
         }
     
         $detallePedidoDAO = new DetallePedidoDAO();
-        $productoDAO = new ProductoDAO(); // Asegúrate de tener acceso a los productos
+        $productoDAO = new ProductoDAO(); 
         $metodoPagoDAO = new MetodoPagoDAO();
         $id_usuario = $_SESSION['usuario_id'];
         $metodos_pago = $metodoPagoDAO->obtenerMetodosPorUsuario($id_usuario);
@@ -192,17 +192,14 @@ class PedidosController extends BaseController {
         $pedidoDAO = new PedidoDAO();
         $pedido = $pedidoDAO->obtenerPorId($id_usuario);
         $pedidos = $pedidoDAO->obtenerPedidoEnProceso($id_usuario);
-        
         if (!$pedidos) {
             $detalles = [];
         } else {
-            // Obtener los detalles del pedido
             $detalles = $detallePedidoDAO->obtenerDetallesPorPedido($pedidos->id_pedido);
             
-            // Agregar información del producto a cada detalle
             foreach ($detalles as $detalle) {
-                $producto = $productoDAO->obtenerPorId($detalle->id_producto); // Obtener los datos del producto
-                $detalle->producto = $producto; // Añadir el objeto producto al detalle
+                $producto = $productoDAO->obtenerPorId($detalle->id_producto); 
+                $detalle->producto = $producto; 
             }
         }
     
@@ -210,6 +207,82 @@ class PedidosController extends BaseController {
         $vista = "web/View/pagina-compra.php";
         include_once("web/View/main/main.php");
     }
+    public function confirmarCompra() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
+    
+        $id_usuario = $_SESSION['usuario_id'];
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $direccion = $_POST['direccion'] ?? null;
+            $ciudad = $_POST['ciudad'] ?? null;
+            $codigo_postal = $_POST['codigo_postal'] ?? null;
+            $pais = $_POST['pais'] ?? null;
+    
+            if (empty($direccion) || empty($ciudad) || empty($codigo_postal) || empty($pais)) {
+                header("Location: /BCorsafe/pedido/error?mensaje=Faltan datos obligatorios");
+                exit();
+            }
+    
+            $metodoPagoDAO = new MetodoPagoDAO();
+            $metodo_pago = $metodoPagoDAO->obtenerMetodosPorUsuario($id_usuario);
+    
+            if (empty($metodo_pago)) {
+                header("Location: /BCorsafe/pedido/error?mensaje=No hay método de pago registrado para este usuario");
+                exit();
+            }
+    
+            $id_pago = $metodo_pago[0]->id_pago;
+    
+            $pedidoDAO = new PedidoDAO();
+            $detallePedidoDAO = new DetallePedidoDAO();
+    
+            $pedido = $pedidoDAO->obtenerPedidoEnProceso($id_usuario);
+            if (!$pedido) {
+                header("Location: /BCorsafe/pedido/error?mensaje=No hay un pedido en proceso");
+                exit();
+            }
+    
+            $pedidoDAO->crearRegistro(
+                $id_usuario,
+                $pedido->id_pedido,
+                $id_pago,
+                $direccion,
+                $ciudad,
+                $codigo_postal,
+                $pais
+            );
+
+            $pedidoDAO->actualizarEstadoPedido($pedido->id_pedido, 'completado');
+    
+            header("Location: /BCorsafe/pedidos/compraConfirmada");
+            exit();
+        } else {
+            header("Location: /BCorsafe/pedido/error?mensaje=Solicitud inválida");
+            exit();
+        }
+    }
+    public function compraConfirmada() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
+    
+        $titulo = "Compra confirmada";
+        $vista = "web/View/compra_confirmada.php"; 
+        include_once("web/View/main/main.php");
+    }
+    
     
     
     

@@ -2,8 +2,8 @@
     <h2 class="text-center carrito-titulo">Tu Carrito</h2>
     <div class="container mt-5 carrito-container">
         <?php if (empty($detalles)): ?>
-            <div class="alert alert-warning text-center carrito-alerta">
-                <p>No tienes productos en el carrito.</p>
+            <div class="carrito-alerta">
+                <img src="/BCorsafe/assets/img/notfound.webp" alt="Foto de carrito vacio">
             </div>
         <?php else: ?>
             <div class="carrito-grid">

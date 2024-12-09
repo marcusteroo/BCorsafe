@@ -29,7 +29,7 @@ class PedidoDAO extends BaseDAO {
     public function obtenerPedidoEnProceso($id_usuario) {
         $stmt = $this->db->prepare("
             SELECT * FROM Pedidos 
-            WHERE id_usuario = :id_usuario AND id_pago IS NULL
+            WHERE id_usuario = :id_usuario AND estado = 'pendiente'
         ");
         $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
         $stmt->execute();
@@ -49,7 +49,34 @@ class PedidoDAO extends BaseDAO {
         $stmt = $this->db->prepare("UPDATE Pedidos SET monto_total = :monto_total WHERE id_pedido = :id_pedido");
         $stmt->bindParam(':monto_total', $monto_total);
         $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
+        $stmt->execute();   
+    }
+    public function crearRegistro($id_usuario, $id_pedido, $id_pago, $direccion, $ciudad, $codigo_postal, $pais) {
+        $stmt = $this->db->prepare("
+            INSERT INTO Pedidos_Comprados (id_usuario, id_pedido, id_pago, direccion, ciudad, codigo_postal, pais)
+            VALUES (:id_usuario, :id_pedido, :id_pago, :direccion, :ciudad, :codigo_postal, :pais)
+        ");
+        $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+        $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
+        $stmt->bindParam(':id_pago', $id_pago, PDO::PARAM_INT);
+        $stmt->bindParam(':direccion', $direccion, PDO::PARAM_STR);
+        $stmt->bindParam(':ciudad', $ciudad, PDO::PARAM_STR);
+        $stmt->bindParam(':codigo_postal', $codigo_postal, PDO::PARAM_STR);
+        $stmt->bindParam(':pais', $pais, PDO::PARAM_STR);
+    
         $stmt->execute();
+    }
+    public function eliminarPedido($id_pedido) {
+        $stmt = $this->db->prepare("DELETE FROM Pedidos WHERE id_pedido = :id_pedido");
+        $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+    public function actualizarEstadoPedido($id_pedido, $estado) {
+        $query = "UPDATE Pedidos SET estado = :estado WHERE id_pedido = :id_pedido";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':estado', $estado);
+        $stmt->bindParam(':id_pedido', $id_pedido);
+        return $stmt->execute();
     }
     
 

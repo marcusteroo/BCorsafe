@@ -73,5 +73,10 @@ class DetallePedidoDAO extends BaseDAO {
         $stmt->bindParam(':ingredientes_custom', $ingredientes_custom, PDO::PARAM_STR);
         $stmt->execute();
     }
+    public function eliminarDetallesPorPedido($id_pedido) {
+        $stmt = $this->db->prepare("DELETE FROM Detalles_Pedido WHERE id_pedido = :id_pedido");
+        $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }
 ?>
