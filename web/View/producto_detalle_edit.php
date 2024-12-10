@@ -44,7 +44,7 @@
                     </ul>
 
                     <!-- Cantidad -->
-                    <div class="form-group mt-3">
+                    <div class="form-group mt-3 producto-detalle-cantidad">
                         <label for="cantidad">Cantidad:</label>
                         <input type="number" id="cantidad" name="cantidad" value="<?php echo $detalle_edit->cantidad; ?>" min="1" class="form-control w-25">
                     </div>

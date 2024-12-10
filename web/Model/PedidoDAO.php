@@ -78,6 +78,23 @@ class PedidoDAO extends BaseDAO {
         $stmt->bindParam(':id_pedido', $id_pedido);
         return $stmt->execute();
     }
+    public function obtenerPedidosComprados($id_usuario) {
+        $stmt = $this->db->prepare("
+            SELECT pc.id_compra, pc.direccion, pc.ciudad, pc.codigo_postal, pc.pais, 
+                   dp.id_producto, dp.cantidad, dp.precio_pedido, 
+                   p.nombre, p.img, p.descripcion
+            FROM Pedidos_Comprados pc
+            JOIN Detalles_Pedido dp ON pc.id_pedido = dp.id_pedido
+            JOIN Productos p ON dp.id_producto = p.id_producto
+            WHERE pc.id_usuario = :id_usuario
+            ORDER BY pc.id_compra DESC
+        ");
+        $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+
     
 
 }

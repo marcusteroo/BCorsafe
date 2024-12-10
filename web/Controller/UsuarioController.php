@@ -187,5 +187,11 @@ class UsuarioController extends BaseController {
             exit;
         }
     }
+    public function listarContacto(){
+        $titulo = "Contacto";
+        $vista = "web/View/contacto.php";
+        include_once("web/View/main/main.php");
+    }
+    
 }
 ?>

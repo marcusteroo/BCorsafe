@@ -29,20 +29,20 @@
                 <div class="imagenes-horizontales">
                     <div class="imagen-con-texto">
                         <img src="/BCorsafe/assets/img/HamLarga1.webp" alt="Imagen hamburguesa gaming larga" width="100%" class="img-larga1" >
-                        <div class="texto-imagen-l">LaserBurguer</div>
-                        <a class="texto-imagen2">Comprar ahora -><a>
+                        <div class="texto-imagen-l">BurguerLaser</div>
+                        <a href="/BCorsafe/productos/detalle?id=4" class="texto-imagen2">Comprar ahora -><a>
                     </div>
                     <div class="imagen-con-texto">
                         <img src="/BCorsafe/assets/img/HamLarga2.webp" alt="Imagen hamburguesa gaming larga" width="100%" class="img-larga1" >
                         <div class="texto-imagen-l">BlueBurguer</div>
-                        <a class="texto-imagen2">Comprar ahora -></a>
+                        <a href="/BCorsafe/productos/detalle?id=6" class="texto-imagen2">Comprar ahora -></a>
                     </div>
                 </div>
                 <div class="imagenes-seccion2">
                     <div class="imagen-con-texto">
                         <img src="/BCorsafe/assets/img/Ham1.webp" alt="Imagen hamburguesa gaming" width="100%" class="img-corta1" >
                         <div class="texto-imagen">BurgerPixel</div>
-                        <a class="texto-imagen2-cuadrado">Comprar ahora -></a>
+                        <a href="/BCorsafe/productos/detalle?id=5" class="texto-imagen2-cuadrado">Comprar ahora -></a>
                     </div>
                 </div>
             </div>

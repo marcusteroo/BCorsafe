@@ -73,6 +73,10 @@ class PedidosController extends BaseController {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         } 
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
         $id_usuario = $_SESSION['usuario_id'];
         $productoDAO = new ProductoDAO();
         $pedidoDAO = new PedidoDAO();
@@ -280,6 +284,24 @@ class PedidosController extends BaseController {
     
         $titulo = "Compra confirmada";
         $vista = "web/View/compra_confirmada.php"; 
+        include_once("web/View/main/main.php");
+    }
+    public function listarPedido() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
+
+        $id_usuario = $_SESSION['usuario_id'];
+        $pedidosDAO = new PedidoDAO();
+        $pedidos = $pedidosDAO->obtenerPedidosComprados($id_usuario);
+
+        $titulo = "Mis Pedidos";
+        $vista = "web/View/pedido_confirmado.php";
         include_once("web/View/main/main.php");
     }
     

@@ -26,7 +26,8 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/BCorsafe/assets/css/producto_detalle.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/carrito.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/metodopago.css">
-    <link rel="stylesheet" href="/BCorsafe/assets/css/finalizar-compra.css">        
+    <link rel="stylesheet" href="/BCorsafe/assets/css/finalizar-compra.css">
+    <link rel="stylesheet" href="/BCorsafe/assets/css/contacto.css">         
 
     
 </head>
@@ -72,10 +73,10 @@ if (session_status() == PHP_SESSION_NONE) {
                             <a class="nav-link" href="/BCorsafe/productos">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#seccion-sobre">Sobre Nosotros</a>
+                            <a class="nav-link" href="/BCorsafe#seccion-sobre">Sobre Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
+                            <a class="nav-link" href="/BCorsafe/usuario/listarContacto">Contacto</a>
                         </li>
 
                         <!-- Iconos de búsqueda y carrito como enlaces en pantallas pequeñas -->

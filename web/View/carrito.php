@@ -25,7 +25,7 @@
                             </div>
                             <div class="carrito-info">
                                 <h4 class="carrito-nombre"><?php echo htmlspecialchars($detalle->nombre_producto); ?></h4>
-                                <p class="carrito-ingredientes"><?php echo htmlspecialchars($detalle->ingredientes_custom ?: 'Todos los ingredientes'); ?></p>
+                                <p class="carrito-ingredientes"><?php echo htmlspecialchars($detalle->ingredientes_custom ?: 'Sin ingredientes'); ?></p>
                                 <p class="carrito-cantidad">Cantidad: <?php echo $detalle->cantidad; ?></p>
                                 <p class="carrito-subtotal"><?php echo number_format($subtotal, 2); ?>€</p>
 

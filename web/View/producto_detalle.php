@@ -44,7 +44,7 @@
                     </ul>
 
                     <!-- Cantidad -->
-                    <div class="form-group mt-3">
+                    <div class="form-group mt-3 producto-detalle-cantidad">
                         <label for="cantidad">Cantidad:</label>
                         <input type="number" id="cantidad" name="cantidad" value="1" min="1" class="form-control w-25">
                     </div>

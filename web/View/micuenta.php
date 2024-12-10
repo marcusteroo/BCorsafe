@@ -6,7 +6,7 @@
             <ul>
                 <li><a href="/BCorsafe/usuario/miCuenta">Mi Perfil</a></li>
                 <hr>
-                <li><a href="/BCorsafe/usuario/pedidos">Mis Pedidos</a></li>
+                <li><a href="/BCorsafe/pedidos/listarPedido">Mis Pedidos</a></li>
                 <hr>
                 <li><a href="/BCorsafe/metodosPago/listar">Métodos de Pago</a></li>
                 <hr>
