@@ -206,7 +206,6 @@ class PedidosController extends BaseController {
                 $detalle->producto = $producto; 
             }
         }
-    
         $titulo = "Finalizar Compra";
         $vista = "web/View/pagina-compra.php";
         include_once("web/View/main/main.php");
@@ -264,7 +263,7 @@ class PedidosController extends BaseController {
             );
 
             $pedidoDAO->actualizarEstadoPedido($pedido->id_pedido, 'completado');
-    
+            unset($_SESSION['descuento']);
             header("Location: /BCorsafe/pedidos/compraConfirmada");
             exit();
         } else {

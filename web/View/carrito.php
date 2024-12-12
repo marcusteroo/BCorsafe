@@ -9,11 +9,14 @@
             <div class="carrito-grid">
                 <?php 
                 $total = 0;
+                $total = floatval($total);  
+                $descuento = isset($_SESSION['descuento']) ? $_SESSION['descuento'] : 0;
+                $descuento = floatval($descuento);
+                
                 foreach ($detalles as $detalle): 
                     $subtotal = $detalle->cantidad * $detalle->precio_pedido;
                     $total += $subtotal;
 
-                    // Obtener la imagen del producto
                     $producto = $productoDAO->getProductoById($detalle->id_producto);
                 ?>
                     <div class="carrito-item">
@@ -39,22 +42,24 @@
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php endforeach; $totalDescuento = $total * ($descuento / 100); $total = $total - $totalDescuento; ?>
             </div>
 
             <div class="carrito-resumen">
                 <h4 class="carrito-titulo-resumen">RESUMEN DEL PEDIDO</h4>
-                <p class="carrito-total">Subtotal: <?php echo number_format($total, 2); ?>€</>
+                <p class="carrito-total">Subtotal: <?php echo number_format($total, 2); ?>€</p>
                 <p class="carrito-envio">Envío: <span class="carrito-envio-gratis">GRATIS</span></p>
                 <p class="carrito-iva">IVA incl.: <?php echo number_format($total * 0.21, 2); ?>€</p>
-                <p>
-                    ¿Tienes un código promocional? 
-                    <button class="cupon-input-mas" id="cupon-btn-carrito">+</button>
-                </p>
-                <div id="cupon-input-carrito">
-                    <input type="text" class="form-control-carrito-des" placeholder="Introduce tu código promocional" />
-                    <button class="aplicar-cupon-carrito">Aplicar</button>
-                </div>
+                <form method="POST" action="/BCorsafe/productos/aplicarCupon">
+                    <p>
+                        ¿Tienes un código promocional? 
+                        <a class="cupon-input-mas" id="cupon-btn-carrito">+</a>
+                    </p>
+                    <div id="cupon-input-carrito">
+                        <input type="text" name="codigo_cupon"class="form-control-carrito-des" placeholder="Introduce tu código promocional" />
+                        <button class="aplicar-cupon-carrito">Aplicar</button>
+                    </div>
+                </form>
                 <hr>
                 <h4 class="carrito-total-final">Total Estimado: <?php echo number_format($total, 2); ?>€</h4>
                 <a href="/BCorsafe/pedidos/PedidoCompra" class="carrito-pagar">Pagar</a>

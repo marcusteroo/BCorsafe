@@ -61,6 +61,36 @@ class ProductosController extends BaseController {
         $vista = 'web/View/producto_detalle.php';
         include_once("web/View/main/main.php");
     }
+    public function aplicarCupon() {
+        $cupon = trim($_POST['codigo_cupon'] ?? ''); // Obtener el código del cupón
+        $productoDAO = new ProductoDAO();
+        $mensajeCupon = '';
+        $totalDescuento = 0;
+    
+        if ($cupon) {
+            // Verificar si el cupón existe en la base de datos
+            $resultado = $productoDAO->verificarCupon($cupon);
+            
+            if ($resultado) {
+                // Si el cupón es válido, calcular el descuento
+                $descuento = $resultado->descuento; 
+                $_SESSION['descuento'] = $descuento;
+                $mensajeCupon = "¡Cupón aplicado! Descuento del {$descuento}%";
+            } else {
+                // Si no es válido, mensaje de error
+                $mensajeCupon = "El cupón no es válido.";
+                $_SESSION['descuento'] = 0; // No hay descuento
+            }
+        } else {
+            $_SESSION['descuento'] = 0; // No hay descuento si no hay cupón
+        }
+    
+        $_SESSION['mensaje_cupon'] = $mensajeCupon;
+    
+        header('Location: /BCorsafe/pedidos/verCarrito'); // Redirigir al carrito
+        exit();
+    }
+    
     
     
 }

@@ -13,6 +13,7 @@
                 <div class="finalizar-grid">
                     <?php 
                     $total = 0;
+                     
                     foreach ($detalles as $detalle): 
                         $subtotal = $detalle->cantidad * $detalle->precio_pedido;
                         $total += $subtotal;
@@ -33,7 +34,7 @@
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endforeach; $totalDescuento = $total * ($_SESSION['descuento'] / 100); $total=$total-$totalDescuento ?>
                     <h3 class="finalizar-total">Total: <?php echo number_format($total, 2); ?>€</h3>
                 </div>
                 

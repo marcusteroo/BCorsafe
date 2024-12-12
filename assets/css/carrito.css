@@ -187,6 +187,7 @@
     margin-left: 5px; 
     transition: color 0.2s ease-in-out; 
     color: white;
+    text-decoration: none!important;
 }
 
 .cupon-input-mas:hover {

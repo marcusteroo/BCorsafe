@@ -67,5 +67,11 @@ class ProductoDAO extends BaseDAO {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_OBJ); 
     }
+    public function verificarCupon($nombreCupon) {
+        $stmt = $this->db->prepare("SELECT descuento FROM cupones WHERE nombre_cupon = :nombre_cupon");
+        $stmt->bindParam(':nombre_cupon', $nombreCupon, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
 }
 ?>
