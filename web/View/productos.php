@@ -52,7 +52,7 @@
             <div class="row productos-container">
                 <?php foreach ($productos as $producto): ?>
                     <div class="col-lg-4 col-md-6 mb-4 container-productos">
-                        <div class="producto bg-dark text-white p-3">
+                        <div class="producto bg-dark text-white p-3 producto-contenedor-media">
                             <img src="<?php echo htmlspecialchars($producto->img); ?>" alt="<?php echo htmlspecialchars($producto->nombre); ?>" class="producto-img img-fluid rounded mb-3">
                             <div class="producto-info">
                                 <h5 class="producto-nombre"><?php echo htmlspecialchars($producto->nombre); ?></h5>

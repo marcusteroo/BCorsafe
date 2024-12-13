@@ -226,6 +226,131 @@
 .aplicar-cupon-carrito:hover {
     background-color: #ede91aab; 
 }
+@media (max-width: 1200px) {
+   
+    .carrito-container {
+        max-width: 90%;
+    }
+
+    .carrito-grid {
+        gap: 15px; 
+    }
+
+    .carrito-item {
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .carrito-resumen {
+        position: static; 
+        height: auto; 
+    }
+}
+
+@media (max-width: 992px) {
+    
+    .carrito-container {
+        flex-direction: column; 
+        padding: 10px;
+    }
+
+    .carrito-grid {
+        gap: 10px; 
+    }
+
+    .carrito-item {
+        text-align: center; 
+    }
+
+    .carrito-img {
+        width: 70%; 
+        margin: 0 auto; 
+    }
+
+    .carrito-info {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .carrito-resumen {
+        margin-top: 20px; 
+    }
+
+    .carrito-pagar {
+        font-size: 1rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .carrito-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .carrito-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .carrito-img {
+        width: 80%;
+    }
+
+    .carrito-info-img {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .carrito-resumen {
+        text-align: center;
+    }
+
+    .carrito-pagar {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .carrito-container {
+        padding: 10px;
+    }
+
+    .carrito-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .carrito-img {
+        width: 90%; 
+    }
+
+    .carrito-resumen {
+        padding: 10px;
+        text-align: center;
+        background-color: #161517; 
+        border-radius: 8px;
+    }
+
+    .carrito-pagar {
+        font-size: 0.85rem; 
+        padding: 8px;
+    }
+
+    #cupon-input-carrito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #cupon-input-carrito .form-control-carrito-des {
+        width: 90%;
+        max-width: 250px;
+    }
+}
+
 
 
 

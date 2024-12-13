@@ -2,7 +2,7 @@
     <div class="container seccion-detalle">
         <div class="row">
             <!-- Imagen del producto -->
-            <div class="col-md-6">
+            <div class="col-md-6 imagen-container-producto">
                 <img src="<?php echo htmlspecialchars($producto->img); ?>" 
                      alt="<?php echo htmlspecialchars($producto->nombre); ?>" 
                      class="imagen-detalle" width="800px">
