@@ -41,7 +41,7 @@ function obtenerPedidos() {
 
 // Función para eliminar un pedido
 function eliminarPedido(idPedido) {
-    const url = `http://localhost/BCorsafe/api.php?action=pedidos&id_pedido=${idPedido}`;
+    const url = `http://localhost/BCorsafe/web/api/api.php?action=pedidos&id_pedido=${idPedido}`;
 
     fetch(url, {
         method: 'DELETE'

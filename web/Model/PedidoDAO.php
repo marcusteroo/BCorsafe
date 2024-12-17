@@ -67,9 +67,24 @@ class PedidoDAO extends BaseDAO {
         $stmt->execute();
     }
     public function eliminarPedido($id_pedido) {
-        $stmt = $this->db->prepare("DELETE FROM Pedidos WHERE id_pedido = :id_pedido");
-        $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
-        $stmt->execute();
+        try {
+            // Se inicia una transacción para asegurarse de que los dos DELETE se ejecuten correctamente
+            $this->db->beginTransaction();
+    
+            $stmt = $this->db->prepare("DELETE FROM Detalles_Pedido WHERE id_pedido = :id_pedido");
+            $stmt->bindParam(':id_pedido', $id_pedido);
+            $stmt->execute();
+    
+            $stmt = $this->db->prepare("DELETE FROM Pedidos WHERE id_pedido = :id_pedido");
+            $stmt->bindParam(':id_pedido', $id_pedido);
+            $stmt->execute();
+    
+            // Confirmar la transacción
+            $this->db->commit();
+        } catch (Exception $e) {
+            $this->db->rollBack();
+            throw $e; // Re-lanzar el error para manejarlo en el controlador
+        }
     }
     public function actualizarEstadoPedido($id_pedido, $estado) {
         $query = "UPDATE Pedidos SET estado = :estado WHERE id_pedido = :id_pedido";
