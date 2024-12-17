@@ -56,5 +56,11 @@ class UsuarioDAO extends BaseDAO {
         $stmt->bindParam(':imagen', $imagen);
         $stmt->execute();
     }
+    //Para el admin
+    public function eliminarPorId($id) {
+        $stmt = $this->db->prepare("DELETE FROM Usuarios WHERE id_usuario = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }
 ?>

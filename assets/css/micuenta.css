@@ -63,7 +63,7 @@
 
 
 .micuenta-info {
-    width: 70%;
+    width: 90%;
     padding: 40px;
     background-color: white;
 }
@@ -76,27 +76,31 @@
     font-size: 18px;
 }
 
-.micuenta-info .btn-warning {
-    background-color: #EDE81A;
-    color: black;
+.seccion-datos-usuario-micuenta{
+    background-color: #FBFAFB;
+    max-width: 350px;
+    margin-bottom: 20px;
+}
+.seccion-datos-usuario-micuenta p{
+    padding: 5px;
+}
+.seccion-datos-usuario-micuenta a{
+    padding: 5px;
     font-weight: bold;
     text-decoration: none;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s;
 }
 
-.micuenta-info .btn-warning:hover {
-    background-color: #d9d415;
-    color: black;
-}
+
 .micuenta-info h4{
     font-size: 45px;
+    margin-bottom: 20px;
 }
 .micuenta-info p{
-    font-size: 22px;
+    font-size: 1em;
+    
+}
+.parrafo-micuenta-usuario{
+    margin-bottom: 60px;
 }
 
 
@@ -124,8 +128,8 @@
 
 .imagen-preview img {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   
     border: 3px solid #ccc;
 }
@@ -139,7 +143,7 @@
     border: solid 1px black;
     color: black;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
@@ -251,5 +255,14 @@
         text-align: center;
         margin-bottom: 20px;
         
+    }
+    .seccion-datos-usuario-micuenta{
+        text-align: center;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
     }
 }

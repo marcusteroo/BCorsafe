@@ -35,13 +35,7 @@
     margin-bottom: 5px;
 }
 
-/* Sección de Métodos de Pago */
-.metodos-pago-finalizarCompra {
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-}
+
 
 .metodos-pago-finalizarCompra h2 {
     font-size: 1.5em;
@@ -215,3 +209,91 @@
     text-decoration: none;
     
 }
+.boton-cambiar-metodo-pago{
+    text-decoration: none;
+}
+@media (max-width: 1200px) {
+    .container-finalizarCompra {
+        width: 90%;
+        padding: 15px;
+    }
+    .finalizar-grid {
+        flex-direction: column;
+    }
+    .finalizar-item {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .seccionCarritoFinalizar {
+        flex-direction: column;
+    }
+    .direccion-envio-finalizarCompra {
+        margin-bottom: 20px;
+    }
+    .finalizar-info-img {
+        flex-direction: column;
+        align-items: center;
+    }
+    .finalizar-img {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .finalizar-info {
+        max-width: 100%;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .finalizar-nombre {
+        font-size: 1.5rem;
+    }
+    .finalizar-ingredientes, 
+    .finalizar-precio, 
+    .finalizar-cantidad, 
+    .finalizar-subtotal {
+        font-size: 0.85rem;
+    }
+    .usuario-info-finalizarCompra {
+        font-size: 0.9em;
+    }
+    .form-group-finalizarCompra label {
+        font-size: 1em;
+    }
+    .btn-primary-finalizarCompra, 
+    .boton-cambiar-pago-finalizar {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-finalizarCompra {
+        width: 100%;
+        padding: 10px;
+    }
+    .usuario-info-finalizarCompra p, 
+    .usuario-info-finalizarCompra strong {
+        font-size: 0.85em;
+    }
+    .finalizar-total {
+        font-size: 1.5em;
+    }
+    .finalizar-img {
+        width: 100%;
+    }
+    .metodos-pago-finalizarCompra h2, 
+    .direccion-envio-finalizarCompra h2 {
+        font-size: 1.2em;
+    }
+    .form-control-finalizarCompra {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+    .list-group-finalizarCompra{
+        font-size: 0.8em;
+    }
+}
+

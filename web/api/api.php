@@ -3,50 +3,38 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+$basePath = __DIR__ . '/../..';
+include_once $basePath . '/web/Model/UsuarioDAO.php';
+include_once $basePath . '/web/Model/PedidoDAO.php';
+include_once $basePath . '/web/Model/DetallePedidoDAO.php';
+include_once $basePath . '/web/Model/ProductoDAO.php';
+include_once $basePath . '/web/Controller/AdminController.php';
 
-$users= [
-    ['id'=>1,'nombre'=>'Juan','email'=>'juna@gmail.com'],
-    ['id'=>2,'nombre'=>'Alex','email'=>'juna@gmail.com'],
-    ['id'=>3,'nombre'=>'Oscar','email'=>'juna@gmail.com']
-];
+
+$adminController = new AdminController();
+
 $metodo = $_SERVER['REQUEST_METHOD'];
-switch ($metodo){
-    case 'GET':
-        if(isset($_GET['id'])){
-            $existe=false;
-            foreach($users as $user){
-                if ($user['id']==$_GET['id']){
-                    echo json_encode([
-                        'estado'=>'Exito',
-                        'data'=> $user
-                    ]);
-                    $existe=true;
-                    break;
-                }
-            }
-            if($existe==false){
-                http_response_code(404);
-                echo json_encode([
-                    'estado'=>'Fallido',
-                    'data'=> 'No hay datos'
-                ]);
-            }
-        }
-        else{
-            echo json_encode([
-            'estado'=>'Exito',
-            'data'=> $users
-            ]);
-        }
-    break;
-    case 'POST':
-        $data=json_decode(file_get_contents("php://input"),true);
-        array_push($users,['id'=>4,'nombre'=>$data["nombre"],'email'=>'juna@gmail.com']);
-        echo json_encode([
-            'estado'=>'Exito',
-            'data'=> 'Insertado correctamente'
-        ]);
-    break;
+$action = isset($_GET['action']) ? $_GET['action'] : null;
 
+switch ($metodo) {
+    case 'GET':
+        if ($action === 'pedidos') {
+            $adminController->obtenerTodosLosPedidos();
+        }
+        break;
+
+    case 'DELETE': // Eliminar un pedido
+        if ($action === 'pedidos' && isset($_GET['id_pedido'])) {
+            $adminController->eliminarPedido(intval($_GET['id_pedido']));
+        }
+        break;
+
+    default:
+        echo json_encode([
+            'estado' => 'Fallido',
+            'mensaje' => 'Método o acción no soportado'
+        ]);
+        break;
 }
+
 ?>

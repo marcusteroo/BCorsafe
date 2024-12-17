@@ -281,6 +281,9 @@ hr{
     .titulo-seccion3 h2{
         margin-bottom: 30px;
     }
+    .ultimo-p-home{
+        padding-bottom: 20px;
+    }
 }
 .seccion4{
     font-family: "Saira", sans-serif;

@@ -69,7 +69,7 @@
 
         <div class="col-12 col-md-4 seccion4-4">
             <video src="/BCorsafe/assets/img/EspatulaLed.mp4" autoplay loop muted></video>
-            <p>LOS MEJORES CHEF DE LA CIUDAD</p>
+            <p class="ultimo-p-home">LOS MEJORES CHEF DE LA CIUDAD</p>
         </div>
     </div>
 </div>

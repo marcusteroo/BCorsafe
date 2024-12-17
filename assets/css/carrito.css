@@ -349,6 +349,9 @@
         width: 90%;
         max-width: 250px;
     }
+    .seccion-confirmar-pedido{
+        font-size: 0.8em;
+    }
 }
 
 

@@ -63,7 +63,9 @@ class UsuarioController extends BaseController {
         include_once("web/View/main/main.php");
     }
     public function cambiarContrasena(){
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         if (!isset($_SESSION['usuario_id'])) {
             header("Location: /BCorsafe/usuario/login");
             exit;
@@ -157,7 +159,7 @@ class UsuarioController extends BaseController {
     
             // Esto es para verificar si se pasa de 2mb
             if ($imagen['size'] > 2 * 1024 * 1024) {
-                $_SESSION['mensaje_error'] = "La imagen supera el tamaño máximo de 2 MB.";
+                $_SESSION['mensaje_error_img'] = "La imagen supera el tamaño máximo de 2 MB.";
                 header("Location: /BCorsafe/usuario/miCuenta");
                 exit;
             }
@@ -166,23 +168,32 @@ class UsuarioController extends BaseController {
             $extensionesPermitidas = ['jpg', 'jpeg', 'png','webp'];
             $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
             if (!in_array(strtolower($extension), $extensionesPermitidas)) {
-                $_SESSION['mensaje_error'] = "Formato de imagen no permitido.";
+                $_SESSION['mensaje_error_img'] = "Formato de imagen no permitido.";
                 header("Location: /BCorsafe/usuario/miCuenta");
                 exit;
             }
     
-            // Guardar imagen
-            $rutaDestino = "/BCorsafe/assets/img/"; 
+            $rutaDestino = "/BCorsafe/assets/img/";
             $rutaDestino2 = __DIR__ . "/../../assets/img/";
-            $nombreArchivo = "perfil_" . $_SESSION['usuario_id'] . "." . $extension;
-            $rutaImagen = $rutaDestino.$nombreArchivo;
-            move_uploaded_file($imagen['tmp_name'], $rutaDestino2 . $nombreArchivo);
-    
-            // Actualizar ruta en la base de datos
-            $usuarioDAO = new UsuarioDAO();
-            $usuarioDAO->actualizarImagen($_SESSION['usuario_id'], $rutaImagen);
-    
-            $_SESSION['mensaje'] = "Imagen de perfil actualizada con éxito.";
+            $nombreBase = "perfil_" . $_SESSION['usuario_id'];
+            $nombreArchivo = $nombreBase . "." . $extension;
+            $rutaImagen = $rutaDestino . $nombreArchivo;
+
+            $extensionesExistentes = ['jpg', 'jpeg', 'png', 'webp']; 
+            foreach ($extensionesExistentes as $ext) {
+                $archivoExistente = $rutaDestino2 . $nombreBase . '.' . $ext;
+                if (file_exists($archivoExistente)) {
+                    unlink($archivoExistente);
+                }
+            }
+            
+            if (move_uploaded_file($imagen['tmp_name'], $rutaDestino2 . $nombreArchivo)) {
+                $usuarioDAO = new UsuarioDAO();
+                $usuarioDAO->actualizarImagen($_SESSION['usuario_id'], $rutaImagen);
+                $_SESSION['imagen_perfil'] = $rutaImagen;
+            } else {
+                $_SESSION['mensaje_error_img'] = "No se pudo mover el archivo.";
+            }
             header("Location: /BCorsafe/usuario/miCuenta");
             exit;
         }
@@ -191,6 +202,12 @@ class UsuarioController extends BaseController {
         $titulo = "Contacto";
         $vista = "web/View/contacto.php";
         include_once("web/View/main/main.php");
+    }
+    public function adminPage() {
+        $titulo = "Admin";
+        $vista = "web/View/panel-admin.php";
+        include_once("web/View/main/main.php");
+        
     }
     
 }

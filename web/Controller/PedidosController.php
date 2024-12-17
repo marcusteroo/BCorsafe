@@ -105,9 +105,8 @@ class PedidosController extends BaseController {
     
         $id_detalle = $_GET['id'];
         $detallePedidoDAO = new DetallePedidoDAO();
-    
         $detallePedidoDAO->eliminarDetalle($id_detalle);
-    
+        
         header("Location: /BCorsafe/pedidos/verCarrito");
         exit();
     }
@@ -184,6 +183,9 @@ class PedidosController extends BaseController {
         if (!isset($_SESSION['usuario_id'])) {
             header("Location: /BCorsafe/usuario/login");
             exit();
+        }
+        if (!isset($_SESSION['descuento'])) {
+            $_SESSION['descuento'] = 0;
         }
     
         $detallePedidoDAO = new DetallePedidoDAO();

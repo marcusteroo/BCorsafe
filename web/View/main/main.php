@@ -27,7 +27,8 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/BCorsafe/assets/css/carrito.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/metodopago.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/finalizar-compra.css">
-    <link rel="stylesheet" href="/BCorsafe/assets/css/contacto.css">         
+    <link rel="stylesheet" href="/BCorsafe/assets/css/contacto.css">
+    <link rel="stylesheet" href="/BCorsafe/assets/css/adminpanel.css">        
 
     
 </head>
@@ -38,7 +39,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <?php if (isset($_SESSION['usuario_id'])): ?>
                     <!-- Si la sesión está activa, mostrar "Mi cuenta" y la imagen de perfil -->
                     <a href="/BCorsafe/usuario/miCuenta" class="text-white d-flex align-items-center d-none d-sm-inline">
-                        <img src="<?php echo htmlspecialchars($_SESSION['imagen_perfil']). '?v=' . time(); ?>" 
+                        <img src="<?php echo htmlspecialchars($_SESSION['imagen_perfil']). '?t=' . time(); ?>" 
                             alt="Foto de perfil" 
                             class="rounded-circle me-2" 
                             style="width: 30px; height: 30px; object-fit: cover;">
@@ -81,11 +82,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
                         <!-- Iconos de búsqueda y carrito como enlaces en pantallas pequeñas -->
                         <li class="nav-item d-lg-none">
-                            <a href="#" class="nav-link text-white">
-                                <i class="bi bi-search"></i> Buscar
-                            </a>
-                        </li>
-                        <li class="nav-item d-lg-none">
                             <a href="/BCorsafe/pedidos/verCarrito" class="nav-link text-white">
                                 <i class="bi bi-cart"></i> Carrito
                             </a>
@@ -108,9 +104,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
                 <!-- Iconos de búsqueda y carrito como iconos en pantallas grandes -->
                 <div class="d-none d-lg-flex justify-content-end " id="icono-nav">
-                    <a href="#" class="nav-link text-white me-3 ">
-                        <i class="bi bi-search"></i> 
-                    </a>
                     <a href="/BCorsafe/pedidos/verCarrito" class="nav-link text-white me-3 position-relative" id="abrir-carrito">
                         <i class="bi bi-cart"></i>
                         <!-- Aquí mostramos la cantidad de productos en el carrito -->

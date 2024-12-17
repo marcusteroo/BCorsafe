@@ -73,5 +73,12 @@ class ProductoDAO extends BaseDAO {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
+    //Para el admin
+    public function insertar($producto) {
+        $stmt = $this->db->prepare("INSERT INTO Productos (nombre, precio) VALUES (:nombre, :precio)");
+        $stmt->bindParam(':nombre', $producto->nombre);
+        $stmt->bindParam(':precio', $producto->precio);
+        $stmt->execute();
+    }
 }
 ?>

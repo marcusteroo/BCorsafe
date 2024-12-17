@@ -58,8 +58,9 @@
                             <label for="pais">País:</label>
                             <input type="text" id="pais" name="pais" class="form-control-finalizarCompra" required>
                         </div>
-                        <div class="metodos-pago-finalizarCompra">
-                            <h2 class="titulo-metodo-finalizar">Método de Pago</h2>
+                        
+                        <h2 class="titulo-metodo-finalizar">Método de Pago</h2>
+                        <a href="/BCorsafe/MetodosPago/listar" class="boton-cambiar-metodo-pago">
                             <ul class="list-group-finalizarCompra">
                                 <?php foreach ($metodos_pago as $metodo): ?>
                                     <li class="list-group-item-metodopago-finalizarCompra">
@@ -74,13 +75,13 @@
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
-                            <a  class="boton-cambiar-pago-finalizar"href="/BCorsafe/MetodosPago/listar">Cambiar Metodo de pago</a>
-                        </div>
+                        </a>
+                        
                         <button type="submit" class="btn-primary-finalizarCompra">Finalizar Compra</button>
                     </form>
                 </div>
             </div>
-            <!-- Métodos de Pago -->
+            
             
     </div>
 </div>
