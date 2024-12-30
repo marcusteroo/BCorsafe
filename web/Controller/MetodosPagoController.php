@@ -50,6 +50,7 @@ class MetodosPagoController extends BaseController {
 
         $titulo = "Mis Métodos de Pago";
         $vista = "web/View/metodos_pago_listar.php";
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     public function updatePago() {

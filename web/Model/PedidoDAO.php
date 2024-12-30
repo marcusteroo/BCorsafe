@@ -108,6 +108,20 @@ class PedidoDAO extends BaseDAO {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function obtenerPedidosCompletadosYUltimos() {
+        // Esta funcion la estoy haciendo para utilizar arrays en una SESION (Peticion de David)
+        $stmt = $this->db->prepare("
+            SELECT * FROM Pedidos 
+            WHERE estado = 'completado'
+            ORDER BY id_pedido DESC 
+            LIMIT 3
+        ");
+        $stmt->execute();
+        // Guardar resultados en la sesión
+        $pedidos = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $_SESSION['ultimos_pedidos'] = $pedidos;
+        return $pedidos;
+    }
     
 
     

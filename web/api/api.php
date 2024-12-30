@@ -9,7 +9,9 @@ include_once $basePath . '/web/Model/PedidoDAO.php';
 include_once $basePath . '/web/Model/DetallePedidoDAO.php';
 include_once $basePath . '/web/Model/ProductoDAO.php';
 include_once $basePath . '/web/Controller/AdminController.php';
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $adminController = new AdminController();
 
@@ -20,6 +22,25 @@ switch ($metodo) {
     case 'GET':
         if ($action === 'pedidos') {
             $adminController->obtenerTodosLosPedidos();
+        }
+        elseif ($action === 'ultimos_pedidos') {
+            // Esta funcion la estoy haciendo para utilizar arrays en una SESION (Peticion de David)
+            $pedidoDAO = new PedidoDAO();
+            if (!isset($_SESSION['ultimos_pedidos']) || empty($_SESSION['ultimos_pedidos'])) {
+                $_SESSION['ultimos_pedidos'] = $pedidoDAO->obtenerPedidosCompletadosYUltimos();
+            }
+            // Enviar la respuesta
+            if (!empty($_SESSION['ultimos_pedidos'])) {
+                echo json_encode([
+                    'estado' => 'Exito',
+                    'data' => $_SESSION['ultimos_pedidos']
+                ]);
+            } else {
+                echo json_encode([
+                    'estado' => 'Fallido',
+                    'mensaje' => 'No hay pedidos disponibles en la sesión.'
+                ]);
+            }
         }
         break;
 

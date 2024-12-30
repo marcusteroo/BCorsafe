@@ -1,6 +1,12 @@
-
 window.onload = function() {
-    obtenerPedidos(); // Llamar a la función obtenerPedidos() cuando se cargue la página
+    const currentPath = window.location.pathname;
+
+    if (currentPath === '/BCorsafe/admin/adminPage3Pedidos') {
+        obtenerUltimosPedidos();
+    }
+    else{
+        obtenerPedidos();
+    }
 };
 function obtenerPedidos() {
     const url = 'http://localhost/BCorsafe/web/api/api.php?action=pedidos'; 
@@ -57,3 +63,31 @@ function eliminarPedido(idPedido) {
     })
     .catch(error => console.error('Error:', error));
 }
+
+function obtenerUltimosPedidos() {
+    const url = 'http://localhost/BCorsafe/web/api/api.php?action=ultimos_pedidos';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.estado === 'Exito') {
+                let pedidos = data.data;
+
+                let tbody = document.querySelector(".adminpanel-table tbody");
+                tbody.innerHTML = ''; // Limpiar la tabla
+
+                pedidos.forEach(pedido => {
+                    let row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${pedido.id_pedido}</td>
+                        <td>${pedido.id_usuario}</td>
+                        <td>${pedido.fecha_pedido || 'Sin fecha'}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            } else {
+                alert('No hay últimos pedidos disponibles.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+

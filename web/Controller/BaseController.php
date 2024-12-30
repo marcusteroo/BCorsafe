@@ -2,7 +2,6 @@
     //Este controlador es para poder utilizarlo en la web, en el caso de saber cuantos productos hay en el carrito lo necesito saber en toda la web ya que se muestran en el header con el icono de carrito
     class BaseController {
         protected $cantidad_productos;
-
         public function __construct() {
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();

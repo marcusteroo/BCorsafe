@@ -6,6 +6,7 @@ class UsuarioController extends BaseController {
     public function registro() {
         $titulo="Registrarse";
         $vista= 'web/View/register.php';
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     public function miCuenta(){
@@ -20,6 +21,7 @@ class UsuarioController extends BaseController {
         $usuario = $usuarioDAO->obtenerPorId($_SESSION['usuario_id']);
         $titulo = "Mi Cuenta";
         $vista = 'web/View/miCuenta.php';
+        $admin = false;
         include_once("web/View/main/main.php"); 
     }
     public function registrar() {
@@ -59,7 +61,7 @@ class UsuarioController extends BaseController {
                 
             }
         }
-       
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     public function cambiarContrasena(){
@@ -94,6 +96,7 @@ class UsuarioController extends BaseController {
 
         $titulo = "Cambiar Contraseña";
         $vista = 'web/View/cambiar-contrasena.php';
+        $admin = false;
         include_once("web/View/main/main.php");
 
     }
@@ -107,6 +110,7 @@ class UsuarioController extends BaseController {
         }
         $titulo = "Iniciar Sesión";
         $vista = 'web/View/login.php';
+        $admin = false;
         $errorMessage = null;
     
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -201,13 +205,8 @@ class UsuarioController extends BaseController {
     public function listarContacto(){
         $titulo = "Contacto";
         $vista = "web/View/contacto.php";
+        $admin = false;
         include_once("web/View/main/main.php");
-    }
-    public function adminPage() {
-        $titulo = "Admin";
-        $vista = "web/View/panel-admin.php";
-        include_once("web/View/main/main.php");
-        
     }
     
 }

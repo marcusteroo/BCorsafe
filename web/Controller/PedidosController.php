@@ -92,6 +92,7 @@ class PedidosController extends BaseController {
         }
         $titulo = "Carrito de Compras";
         $vista = "web/View/carrito.php";
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     public function quitarProducto() {
@@ -131,6 +132,7 @@ class PedidosController extends BaseController {
     
         $titulo = "Editar Producto en el Carrito";
         $vista = "web/View/producto_detalle_edit.php"; 
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     public function actualizarCarrito() {
@@ -210,6 +212,7 @@ class PedidosController extends BaseController {
         }
         $titulo = "Finalizar Compra";
         $vista = "web/View/pagina-compra.php";
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     public function confirmarCompra() {
@@ -285,6 +288,7 @@ class PedidosController extends BaseController {
     
         $titulo = "Compra confirmada";
         $vista = "web/View/compra_confirmada.php"; 
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     public function listarPedido() {
@@ -303,6 +307,7 @@ class PedidosController extends BaseController {
 
         $titulo = "Mis Pedidos";
         $vista = "web/View/pedido_confirmado.php";
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     

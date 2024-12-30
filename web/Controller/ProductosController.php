@@ -8,7 +8,7 @@ class ProductosController extends BaseController {
         
         $titulo = "Productos";
         $vista = "web/View/productos.php";
-        
+        $admin = false;
         include_once("web/View/main/main.php");
     }
 
@@ -19,6 +19,7 @@ class ProductosController extends BaseController {
         if ($producto) {
             $titulo = "Detalle del Producto";
             $vista = "web/View/detalle_producto.php";
+            $admin = false;
             include_once("web/View/main/main.php");
         } else {
             echo "Producto no encontrado.";
@@ -27,6 +28,7 @@ class ProductosController extends BaseController {
     public function filtrar() {
         $titulo = "Productos";
         $vista = "web/View/productos.php";
+        $admin = false;
         $precios = $_POST['precios'] ?? [];
         $ingredientes = $_POST['ingredientes'] ?? [];
         
@@ -59,6 +61,7 @@ class ProductosController extends BaseController {
         // Renderizar la vista
         $titulo = "Detalle del Producto";
         $vista = 'web/View/producto_detalle.php';
+        $admin = false;
         include_once("web/View/main/main.php");
     }
     public function aplicarCupon() {
