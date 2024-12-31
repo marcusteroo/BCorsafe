@@ -1,4 +1,3 @@
-<!-- Esta página a sido echa por petición del David para utlizar arrays en Sesiones -->
 <div class="admin-principal-container">
     <div class="lateral-adminpage">
         <div class="adminpage-fotologo">
@@ -15,23 +14,25 @@
         <a href="/BCorsafe/usuario/cerrarSesion">Cerrar Sesión</a>
     </div>
     <div class="container-adminpanel">
-        <h1>Ultimos 3 Pedidos</h1>
+        <h1>Panel de Administración - Usuarios</h1>
 
 
         <table class="adminpanel-table" id="tablaPedidos-adminpanel">
             <thead>
                 <tr>
-                    <th>ID Pedido</th>
-                    <th>Usuario</th>
-                    <th>Fecha</th>
+                    <th>ID Usuario</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Aquí se insertarán los últimos pedidos -->
+                <!-- Los pedidos se cargarán aquí -->
             </tbody>
         </table>
-        <a class="boton-tres-pedidos" href="/BCorsafe/admin/adminPage">Volver atras</a>
+        <a class="boton-tres-pedidos" href="/BCorsafe/admin/NewusuarioAdmin">Añadir Usuario</a>
     </div>
 
 </div>
-<script src="/BCorsafe/assets/js/admin-pedidos.js"></script>
+<script src="/BCorsafe/assets/js/admin-usuarios.js"></script>

@@ -62,5 +62,25 @@ class UsuarioDAO extends BaseDAO {
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
+    //Para obtener todos los usuarios para la pagina admin
+    public function obtenerTodos() {
+        $query = "SELECT * FROM Usuarios"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    //Esta funcion es para actualizar el usuario en el admin
+    public function actualizarUsuario($idUsuario, $nombre, $email, $telefono) {
+        $query = "UPDATE Usuarios SET nombre = :nombre, email = :email, telefono = :telefono WHERE id_usuario = :id_usuario";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':nombre', $nombre);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':id_usuario', $idUsuario, PDO::PARAM_INT);
+    
+        if (!$stmt->execute()) {
+            throw new Exception("Error al actualizar el usuario en la base de datos.");
+        }
+    }
 }
 ?>

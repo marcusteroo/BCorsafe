@@ -22,6 +22,8 @@
     display: flex;
     align-content: center;
     gap: 10px;
+    justify-content: center;
+    padding-top: 20px;
 }
 .adminpage-fotologo img{
     max-width: 70px;
@@ -47,6 +49,12 @@ table.adminpanel-table {
 table.adminpanel-table, th, td {
     border: 1px solid #ddd;
 }
+#tablaPedidos-adminpanel{
+    border: solid 2px green;
+    width: 80%;
+    margin: 20px auto;
+    
+}
 th, td {
     padding: 12px;
     text-align: center;
@@ -65,6 +73,13 @@ button.adminpanel-btn-delete {
     padding: 8px 16px;
     cursor: pointer;
 }
+button.adminpanel-btn-edit {
+    background-color: #EDE81A;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
 button.adminpanel-btn-delete:hover {
     background-color: #e53935;
 }
@@ -77,6 +92,7 @@ button.adminpanel-btn-delete:hover {
 }
 .container-adminpanel h1{
     text-align: center;
+    padding-top: 20px;
 }
 .boton-tres-pedidos{
     padding: 10px;
@@ -91,6 +107,45 @@ button.adminpanel-btn-delete:hover {
     align-content: center;
     margin: 0 auto;
     margin-bottom: 20px;
+    text-decoration: none;
+    font-family: "Saira", sans-serif;
+}
+#addUserFormAdmin{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+#addUserFormAdmin input{
+    max-width: 500px;
+    width: 100%;
+    padding: 5px;
+}
+#addUserFormAdmin button{
+    margin-top: 20px;
+    background-color: #0000FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+.boton-new-user{
+    padding: 10px;
+    text-align: center;
+    color: black;
+    justify-content: center;
+    background-color: #EDE81A;
+    border-radius: 5px;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    margin-top: 30px;
     text-decoration: none;
     font-family: "Saira", sans-serif;
 }

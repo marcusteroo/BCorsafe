@@ -23,7 +23,7 @@ switch ($metodo) {
         if ($action === 'pedidos') {
             $adminController->obtenerTodosLosPedidos();
         }
-        elseif ($action === 'ultimos_pedidos') {
+        if ($action === 'ultimos_pedidos') {
             // Esta funcion la estoy haciendo para utilizar arrays en una SESION (Peticion de David)
             $pedidoDAO = new PedidoDAO();
             if (!isset($_SESSION['ultimos_pedidos']) || empty($_SESSION['ultimos_pedidos'])) {
@@ -42,14 +42,33 @@ switch ($metodo) {
                 ]);
             }
         }
-        break;
-
-    case 'DELETE': // Eliminar un pedido
-        if ($action === 'pedidos' && isset($_GET['id_pedido'])) {
-            $adminController->eliminarPedido(intval($_GET['id_pedido']));
+        if ($action === 'usuarios') {
+            $adminController->obtenerTodosLosUsuarios();
+        }
+        if ($action === 'obtener_productos') {
+            $adminController->obtenerTodosLosProductos();
         }
         break;
 
+    case 'DELETE':
+        if ($action === 'pedidos' && isset($_GET['id_pedido'])) {
+            $adminController->eliminarPedido(intval($_GET['id_pedido']));
+        }
+        if ($action === 'usuarios' && isset($_GET['id_usuario'])) {
+            $adminController->eliminarUsuario(intval($_GET['id_usuario']));
+        }
+        break;
+    case 'POST':
+        if ($action === 'add_user') {
+            $adminController->anadirUsuario();
+        }
+        if ($action === 'add_producto') {
+            $adminController->anadirProducto();
+        }
+        if ($action === 'editar_usuario') {
+            $adminController->editarUsuarioAdmin();
+        }
+        break;   
     default:
         echo json_encode([
             'estado' => 'Fallido',

@@ -74,11 +74,37 @@ class ProductoDAO extends BaseDAO {
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
     //Para el admin
-    public function insertar($producto) {
-        $stmt = $this->db->prepare("INSERT INTO Productos (nombre, precio) VALUES (:nombre, :precio)");
-        $stmt->bindParam(':nombre', $producto->nombre);
-        $stmt->bindParam(':precio', $producto->precio);
+    public function obtenerTodosProductosAdmin() {
+        $query = "SELECT * FROM Productos";
+        $stmt = $this->db->prepare($query);
         $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function crearProducto($nombre, $descripcion, $precio, $rutaImagen) {
+        $query = "INSERT INTO Productos (nombre, precio, id_tipo, img, descripcion) 
+                  VALUES (:nombre, :precio, :id_tipo, :img, :descripcion)";
+        $stmt = $this->db->prepare($query);
+        
+        // Usamos bindValue() para poder pasar valores a la consulta, ya que con un valor estático no me dejaba utilizar binParama()
+        $stmt->bindValue(':nombre', $nombre);
+        $stmt->bindValue(':descripcion', $descripcion);
+        $stmt->bindValue(':precio', $precio);
+        $stmt->bindValue(':img', $rutaImagen); 
+        $stmt->bindValue(':id_tipo', 1);  
+        
+        return $stmt->execute();
+    }
+    public function obtenerUltimoIdProducto() {
+        return $this->db->lastInsertId();
+    }
+    public function agregarIngredienteAProducto($idProducto, $idIngrediente) {
+        $query = "INSERT INTO Productos_Ingredientes (id_producto, id_ingrediente, cantidad) 
+                  VALUES (:id_producto, :id_ingrediente, :cantidad)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_producto', $idProducto);
+        $stmt->bindValue(':id_ingrediente', $idIngrediente);
+        $stmt->bindValue(':cantidad', 1);  // La cantidad siempre será 1
+        return $stmt->execute();
     }
 }
 ?>

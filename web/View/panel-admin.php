@@ -9,9 +9,9 @@
         <hr>
         <a href="">Gestionar Pedidos</a>
         <hr>
-        <a href="">Gestionar Usuarios</a>
+        <a href="/BCorsafe/admin/usuarioAdmin">Gestionar Usuarios</a>
         <hr>
-        <a href="">Cerrar Sesión</a>
+        <a href="/BCorsafe/usuario/cerrarSesion">Cerrar Sesión</a>
     </div>
     <div class="container-adminpanel">
         <h1>Panel de Administración - Pedidos</h1>

@@ -43,7 +43,7 @@ class UsuarioController extends BaseController {
             try {
             $usuarioDAO->registrarUsuario($username, $email, $telefono, $password,$imagen);
 
-            // Esto lo que hace es que cuando se crear el usuario en la base de datos vuelve a hacer una consulta en la base de datos y busca ese mismo mail que ya se ha insertado antes en la base de datos para crear la sesion.
+            // Esto lo que hace es que cuando se crea el usuario en la base de datos vuelve a hacer una consulta en la base de datos y busca ese mismo mail que ya se ha insertado antes en la base de datos para crear la sesion.
             $usuario = $usuarioDAO->getUsuarioByEmail($email);
 
             if (session_status() == PHP_SESSION_NONE) {
@@ -53,9 +53,15 @@ class UsuarioController extends BaseController {
             $_SESSION['usuario_nombre'] = $usuario['nombre'];
             $_SESSION['usuario_email'] = $usuario['email'];
             $_SESSION['imagen_perfil']= $usuario['imagen'];
-
-            header("Location: /BCorsafe/");
-            exit;
+            if($usuario['nombre']=="admin" && $usuario['email']=="admin@hotmail.com" ){
+                header("Location: /BCorsafe/admin/adminPage");
+                exit;
+            }
+            else{
+                header("Location: /BCorsafe/");
+                exit;
+            }
+            
             } catch (Exception $e) {
                 $errorMessage = $e->getMessage();  
                 
@@ -127,10 +133,16 @@ class UsuarioController extends BaseController {
                     $_SESSION['usuario_nombre'] = $usuario['nombre'];
                     $_SESSION['usuario_email'] = $usuario['email'];
                     $_SESSION['imagen_perfil']= $usuario['imagen'];
-    
-                    // Redirige al inicio
-                    header("Location: /BCorsafe/");
-                    exit;
+                    if($usuario['nombre']=="admin" && $usuario['email']=="admin@hotmail.com" ){
+                        header("Location: /BCorsafe/admin/adminPage");
+                        exit;
+                    }
+                    else{
+                        // Redirige al inicio
+                        header("Location: /BCorsafe/");
+                        exit;
+                    }
+                    
                 } else {
                     // Credenciales inválidas
                     $_SESSION['mensaje_error'] = "Correo o contraseña incorrectos.";
@@ -150,7 +162,6 @@ class UsuarioController extends BaseController {
         session_unset();
         session_destroy();
     
-        
         header("Location: /BCorsafe/");
         exit;
     }
