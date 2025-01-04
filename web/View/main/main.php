@@ -131,7 +131,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         <img src="/BCorsafe/assets/img/logowebGaming.svg" alt="Logo del restaurante">
                         <p>Las mejores Hamburguesas Gamings del mundo junto con el mejor Cafe</p>
                         <div class="iconos-redes">
-                            <a href="#"><img src="/BCorsafe/assets/img/whatsApp.png" alt="Logo WhatsApp"></a>
+                            <a href="#"><img src="/BCorsafe/assets/img/whatsapp.png" alt="Logo WhatsApp"></a>
                             <a href="#"><img src="/BCorsafe/assets/img/facebook (1).png" alt="Logo Facebook"></a>
                             <a href="#"><img src="/BCorsafe/assets/img/instagram (1).png" alt="Logo Instagram"></a>
                             <!-- Utilizo el formato png para que no se vea el fondo y sea transparante -->
