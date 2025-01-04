@@ -11,6 +11,8 @@
         <hr>
         <a href="/BCorsafe/admin/usuarioAdmin">Gestionar Usuarios</a>
         <hr>
+        <a href="/BCorsafe/admin/NewCuponAdmin">Gestionar Cupones</a>
+        <hr>
         <a href="/BCorsafe/usuario/cerrarSesion">Cerrar Sesión</a>
     </div>
     <div class="form-container-producto-admin">

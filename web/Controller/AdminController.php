@@ -306,7 +306,6 @@ class AdminController extends BaseController {
     }
     //Esto es para editar el usuario en el admin
     public function editarUsuarioAdmin() {
-        // Leer datos JSON del cuerpo de la solicitud
         $data = json_decode(file_get_contents("php://input"), true);
     
         $idUsuario = $data['idUsuario'] ?? null;

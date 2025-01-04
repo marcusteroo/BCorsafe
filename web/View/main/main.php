@@ -61,7 +61,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     
                     <!-- Logo con clases para que se centre en pantallas pequeñas -->
                     <a class="navbar-brand d-flex align-items-center ms-0 mx-lg-0 logo-nav" href="/BCorsafe">
-                        <img src="/BCorsafe/assets/img/logowebGaming.png" alt="Logo BCorsafe" width="80" height="80" class="d-inline-block align-text-top">
+                        <img src="/BCorsafe/assets/img/logowebGaming.svg" alt="Logo BCorsafe" width="80" height="80" class="d-inline-block align-text-top">
                         <span class="ms-2 d-none d-lg-inline texto-logo-nav">BCorsafe</span> 
                     </a>
 
@@ -128,7 +128,7 @@ if (session_status() == PHP_SESSION_NONE) {
             <div class="footer-container">
                 <div class="fondo-footer">
                     <div class="footer-logo">
-                        <img src="/BCorsafe/assets/img/logowebGaming.png" alt="Logo del restaurante">
+                        <img src="/BCorsafe/assets/img/logowebGaming.svg" alt="Logo del restaurante">
                         <p>Las mejores Hamburguesas Gamings del mundo junto con el mejor Cafe</p>
                         <div class="iconos-redes">
                             <a href="#"><img src="/BCorsafe/assets/img/whatsApp.png" alt="Logo WhatsApp"></a>
