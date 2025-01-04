@@ -1,5 +1,5 @@
 <?php
-include_once '../BCorsafe/web/config/DBConnection.php'; 
+include_once '../BCorsafe/web/config/DBconnection.php'; 
 abstract class BaseDAO {
     protected $db;
 
