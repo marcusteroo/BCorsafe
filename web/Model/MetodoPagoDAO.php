@@ -56,4 +56,10 @@ class MetodoPagoDAO extends BaseDAO {
         $stmt->bindParam(':codigo_seguridad', $codigo_seguridad, PDO::PARAM_STR);
         $stmt->execute();
     }
+    public function eliminarMetodoPago($id_pago) {
+        $sql = "DELETE FROM " . $this->getTableName() . " WHERE id_pago = :id_pago";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':id_pago', $id_pago, PDO::PARAM_INT);    
+        $stmt->execute();
+    }
 }

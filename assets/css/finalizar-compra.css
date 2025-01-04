@@ -212,6 +212,27 @@
 .boton-cambiar-metodo-pago{
     text-decoration: none;
 }
+.sin-metodos-pago p{
+    text-align: center;
+    color: white;
+}
+.sin-metodos-pago a{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 200px;
+    background-color: #007bff;
+    color: black;
+    border: none;
+    padding: 8px 13px;
+    font-size: 0.8em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
 @media (max-width: 1200px) {
     .container-finalizarCompra {
         width: 90%;

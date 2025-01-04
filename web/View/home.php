@@ -22,7 +22,7 @@
 
 
     <!-- Esta seccion no la he echo con Boostrap ya que requeria mucha mas personalización para pantallas pequeñas-->
-    <div class="seccion3">
+    <div class="seccion3" id="seccion3">
         <div class="titulo-seccion3"><h2>Nuestros mejores Productos</h2></div>
         <div class="imagenes-seccion">
             <div class="imagenes-seccion1">

@@ -11,7 +11,7 @@
                     <label class="text-white">Precios:</label>
                     <div class="checkboxes">
                         <?php
-                        $precios = [12, 15, 19];
+                        $precios = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
                         foreach ($precios as $precio) {
                             $checked = isset($_POST['precios']) && in_array($precio, $_POST['precios']) ? 'checked' : '';
                             echo '<div class="checkbox-custom"><input type="checkbox" name="precios[]" value="' . htmlspecialchars($precio) . '" ' . $checked . '> ' . htmlspecialchars($precio) . '€</div>';
@@ -25,7 +25,7 @@
                     <label class="text-white">Ingredientes:</label>
                     <div class="checkboxes">
                         <?php
-                        $ingredientes = ["Tomate", "Lechuga", "Huevo", "Queso", "Bacon"];
+                        $ingredientes = ["Tomate", "Cebolla", "Queso", "Lechuga", "Bacon","Pulled Pork","Huevo","Aros Led","Sugus","Cebolla Caramelizada"];
                         
                         foreach ($ingredientes as $ingrediente) {
                             $checked = isset($_POST['ingredientes']) && in_array($ingrediente, $_POST['ingredientes']) ? 'checked' : '';

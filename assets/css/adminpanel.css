@@ -9,8 +9,10 @@
 .lateral-adminpage{
     display: flex;
     flex-direction: column;
-    flex: 1;
     background-color: #161616;
+    width: 400px; 
+    min-width: 400px; 
+    max-width: 400px;
 }
 .lateral-adminpage a{
     color: white;
@@ -148,4 +150,309 @@ button.adminpanel-btn-delete:hover {
     margin-top: 30px;
     text-decoration: none;
     font-family: "Saira", sans-serif;
+}
+.productos-container-admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    max-width: 80%;
+    margin: 0 auto;
+    align-items: stretch;
+    
+}
+
+.card-admin {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-admin img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-admin .card-body-admin {
+    padding: 8px 16px;
+    flex-grow: 1;
+}
+
+.card-admin h3 {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.card-admin p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.card-admin .precio-admin-productos {
+    font-weight: bold;
+    color: #333;
+}
+.titulo-producto-admin h1{
+    text-align: center;
+    padding-top: 10px;
+}
+.form-container-producto-admin {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-admin-producto {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.formulario-new-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formulario-new-producto label {
+    font-weight: bold;
+    color: #555;
+}
+
+.formulario-new-producto input,
+.formulario-new-producto textarea,
+.formulario-new-producto select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formulario-new-producto textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-submit-admin-producto {
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit-admin-producto:hover {
+    background-color: #0056b3;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+}
+.actions{
+    margin-bottom: 10px;
+}
+.titulo-editar-producto-edit-product-admin {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-editar-producto-edit-product-admin {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group-edit-product-admin {
+    margin-bottom: 20px;
+}
+
+.form-group-edit-product-admin label {
+    font-size: 16px;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group-edit-product-admin input,
+.form-group-edit-product-admin textarea,
+.form-group-edit-product-admin select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group-edit-product-admin textarea {
+    min-height: 100px;
+}
+
+.imagen-actual-edit-product-admin {
+    margin-bottom: 10px;
+}
+
+.imagen-actual-edit-product-admin img {
+    border-radius: 8px;
+    max-width: 150px;
+}
+
+.btn-submit-edit-product-admin {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit-edit-product-admin:hover {
+    background-color: #45a049;
+}
+.titulo-editar-usuario-edit-user-admin {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-editar-usuario-edit-user-admin {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group-edit-user-admin {
+    margin-bottom: 20px;
+    
+}
+
+.form-group-edit-user-admin label {
+    font-size: 16px;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group-edit-user-admin input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.btn-submit-edit-user-admin {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit-edit-user-admin:hover {
+    background-color: #45a049;
+}
+#addCuponFormAdmin{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+#addCuponFormAdmin input{
+    max-width: 500px;
+    width: 100%;
+    padding: 5px;
+}
+#addCuponFormAdmin button{
+    margin-top: 20px;
+    background-color: #0000FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+.cupones-admin{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    padding-top: 20px;
+}
+/* Estos son estilos para la libreria del Select2 */
+
+.select2-container {
+    width: 100% !important;
+}
+.select2-container .select2-selection--multiple {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    height: 50px;
+}
+.select2-container .select2-selection--multiple .select2-selection__rendered{
+    height: 50px;
 }

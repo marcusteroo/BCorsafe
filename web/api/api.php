@@ -24,29 +24,16 @@ switch ($metodo) {
             $adminController->obtenerTodosLosPedidos();
         }
         if ($action === 'ultimos_pedidos') {
-            // Esta funcion la estoy haciendo para utilizar arrays en una SESION (Peticion de David)
-            $pedidoDAO = new PedidoDAO();
-            if (!isset($_SESSION['ultimos_pedidos']) || empty($_SESSION['ultimos_pedidos'])) {
-                $_SESSION['ultimos_pedidos'] = $pedidoDAO->obtenerPedidosCompletadosYUltimos();
-            }
-            // Enviar la respuesta
-            if (!empty($_SESSION['ultimos_pedidos'])) {
-                echo json_encode([
-                    'estado' => 'Exito',
-                    'data' => $_SESSION['ultimos_pedidos']
-                ]);
-            } else {
-                echo json_encode([
-                    'estado' => 'Fallido',
-                    'mensaje' => 'No hay pedidos disponibles en la sesión.'
-                ]);
-            }
+            $adminController->mostrar3ultimosPedidos();
         }
         if ($action === 'usuarios') {
             $adminController->obtenerTodosLosUsuarios();
         }
         if ($action === 'obtener_productos') {
             $adminController->obtenerTodosLosProductos();
+        }
+        if ($action === 'get_cupones') {
+            $adminController->obtenerCupones();
         }
         break;
 
@@ -56,6 +43,9 @@ switch ($metodo) {
         }
         if ($action === 'usuarios' && isset($_GET['id_usuario'])) {
             $adminController->eliminarUsuario(intval($_GET['id_usuario']));
+        }
+        if ($action === 'eliminar_producto' && isset($_GET['id_producto'])) {
+            $adminController->eliminarProducto(intval($_GET['id_producto']));
         }
         break;
     case 'POST':
@@ -67,6 +57,12 @@ switch ($metodo) {
         }
         if ($action === 'editar_usuario') {
             $adminController->editarUsuarioAdmin();
+        }
+        if ($action === 'editar_producto') {
+            $adminController->editarProducto();
+        }
+        if ($action === 'add_cupon') {
+            $adminController->anadirCupon();
         }
         break;   
     default:

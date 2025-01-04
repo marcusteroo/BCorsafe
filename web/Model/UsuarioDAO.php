@@ -58,9 +58,19 @@ class UsuarioDAO extends BaseDAO {
     }
     //Para el admin
     public function eliminarPorId($id) {
-        $stmt = $this->db->prepare("DELETE FROM Usuarios WHERE id_usuario = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
+        //Voy a utilizar un try para en casa de que el admin quiera borrar un usuario con un pedido en proceso se le avise que este no se puede eliminar.
+        try {
+            $stmt = $this->db->prepare("DELETE FROM Usuarios WHERE id_usuario = :id");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            // Detecta el error de restricción de clave foránea
+            if ($e->getCode() === '23000') {
+                throw new Exception("No se puede eliminar este usuario debido a que tiene pedidos o métodos de pago asociados.");
+            } else {
+                throw $e;
+            }
+        }
     }
     //Para obtener todos los usuarios para la pagina admin
     public function obtenerTodos() {
@@ -81,6 +91,18 @@ class UsuarioDAO extends BaseDAO {
         if (!$stmt->execute()) {
             throw new Exception("Error al actualizar el usuario en la base de datos.");
         }
+    }
+    public function registrarCupon($nombre_cupon, $descuento) {
+        $stmt = $this->db->prepare("INSERT INTO cupones (nombre_cupon, descuento) VALUES (:nombre_cupon, :descuento)");
+        $stmt->bindParam(':nombre_cupon', $nombre_cupon);
+        $stmt->bindParam(':descuento', $descuento);
+        $stmt->execute();
+    }
+    public function obtenerCupones() {
+        $stmt = $this->db->prepare("SELECT * FROM cupones");
+        $stmt->execute(); 
+    
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 }
 ?>

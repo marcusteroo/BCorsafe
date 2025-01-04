@@ -84,5 +84,31 @@ class MetodosPagoController extends BaseController {
             exit();
         }
     }
+    public function eliminar() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: /BCorsafe/usuario/login");
+            exit();
+        }
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $id_pago = isset($_GET['id_pago']) ? $_GET['id_pago'] : null;
+    
+            if ($id_pago) {
+                // Eliminar el método de pago
+                $metodoPagoDAO = new MetodoPagoDAO();
+                $metodoPagoDAO->eliminarMetodoPago($id_pago);
+    
+                // Redirigir después de eliminar
+                header("Location: /BCorsafe/metodosPago/listar");
+                exit();
+            } else {
+                die("ID de método de pago no proporcionado.");
+            }
+        }
+    }
     
 }

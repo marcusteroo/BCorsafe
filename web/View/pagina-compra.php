@@ -41,7 +41,7 @@
                 <!-- Formulario de Dirección de Envío -->
                 <div class="direccion-envio-finalizarCompra">
                     <h2>Dirección de Envío</h2>
-                    <form action="/BCorsafe/pedidos/confirmarCompra" method="POST">
+                    <form action="/BCorsafe/pedidos/confirmarCompra" method="POST" data-hay-metodos-pago="<?php echo !empty($metodos_pago) ? 'true' : 'false'; ?>">>
                         <div class="form-group-finalizarCompra">
                             <label for="direccion">Dirección:</label>
                             <input type="text" id="direccion" name="direccion" class="form-control-finalizarCompra" required>
@@ -60,24 +60,33 @@
                         </div>
                         
                         <h2 class="titulo-metodo-finalizar">Método de Pago</h2>
-                        <a href="/BCorsafe/MetodosPago/listar" class="boton-cambiar-metodo-pago">
-                            <ul class="list-group-finalizarCompra">
-                                <?php foreach ($metodos_pago as $metodo): ?>
-                                    <li class="list-group-item-metodopago-finalizarCompra">
-                                        <div class="container1-metodos-finalizarCompra">
-                                            <strong>Tipo:</strong> <?php echo htmlspecialchars($metodo->tipo_pago); ?><br>
-                                            <strong>Número:</strong> **** **** **** <?php echo substr(htmlspecialchars($metodo->numero_tarjeta), -4); ?><br>
-                                            <strong>Expira:</strong> <?php echo htmlspecialchars($metodo->fecha_expiracion); ?>
-                                        </div>
-                                        <div class="container2-metodos-finalizarCompra">
-                                            <img src="/BCorsafe/assets/img/<?php echo htmlspecialchars($metodo->tipo_pago);?>.svg" alt="Imagen de <?php echo htmlspecialchars($metodo->tipo_pago);?>">
-                                        </div>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </a>
-                        
-                        <button type="submit" class="btn-primary-finalizarCompra">Finalizar Compra</button>
+                        <?php if (!empty($metodos_pago)): ?>
+                            <a href="/BCorsafe/MetodosPago/listar" class="boton-cambiar-metodo-pago">
+                                <ul class="list-group-finalizarCompra">
+                                    <?php foreach ($metodos_pago as $metodo): ?>
+                                        <li class="list-group-item-metodopago-finalizarCompra">
+                                            <div class="container1-metodos-finalizarCompra">
+                                                <strong>Tipo:</strong> <?php echo htmlspecialchars($metodo->tipo_pago); ?><br>
+                                                <strong>Número:</strong> **** **** **** <?php echo substr(htmlspecialchars($metodo->numero_tarjeta), -4); ?><br>
+                                                <strong>Expira:</strong> <?php echo htmlspecialchars($metodo->fecha_expiracion); ?>
+                                            </div>
+                                            <div class="container2-metodos-finalizarCompra">
+                                                <img src="/BCorsafe/assets/img/<?php echo htmlspecialchars($metodo->tipo_pago);?>.svg" alt="Imagen de <?php echo htmlspecialchars($metodo->tipo_pago);?>"/>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </a>
+                        <?php else: ?>
+                            <div class="sin-metodos-pago">
+                                <p>No tienes métodos de pago registrados.</p>
+                                <a href="/BCorsafe/MetodosPago/listar" class="btn-secundario-finalizarCompra">Añadir Método de Pago</a>
+                            </div>
+                        <?php endif; ?>
+
+                        <button type="submit" class="btn-primary-finalizarCompra" id="btn-finalizar-compra">
+                            Finalizar Compra
+                        </button>
                     </form>
                 </div>
             </div>
@@ -85,3 +94,4 @@
             
     </div>
 </div>
+<script src="/BCorsafe/assets/js/validar-metodopago.js"></script>

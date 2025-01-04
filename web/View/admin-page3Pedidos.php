@@ -6,11 +6,11 @@
             <p>Bcorsafe</p>
         </div>
         <br><br>
-        <a href="">Añadir Productos</a>
+        <a href="/BCorsafe/admin/adminProductos">Gestionar Productos</a>
         <hr>
-        <a href="">Gestionar Pedidos</a>
+        <a href="/BCorsafe/admin/adminPage">Gestionar Pedidos</a>
         <hr>
-        <a href="">Gestionar Usuarios</a>
+        <a href="/BCorsafe/admin/usuarioAdmin">Gestionar Usuarios</a>
         <hr>
         <a href="/BCorsafe/usuario/cerrarSesion">Cerrar Sesión</a>
     </div>

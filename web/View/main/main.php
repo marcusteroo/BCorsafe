@@ -16,7 +16,8 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- He insertado todo estos links para poder utilizar la fuente Saira original de Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- He insertado todo estos links para poder utilizar la fuente Saira original de Google Fonts y una libreria para la etiqueta select -->
     <link rel="stylesheet" href="/BCorsafe/assets/css/estilos-footer.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/estilos-nav.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/home.css">
@@ -28,7 +29,8 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/BCorsafe/assets/css/metodopago.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/finalizar-compra.css">
     <link rel="stylesheet" href="/BCorsafe/assets/css/contacto.css">
-    <link rel="stylesheet" href="/BCorsafe/assets/css/adminpanel.css">     
+    <link rel="stylesheet" href="/BCorsafe/assets/css/adminpanel.css">
+    <link rel="stylesheet" href="/BCorsafe/assets/css/terminos.css">      
 
     
 </head>
@@ -140,15 +142,14 @@ if (session_status() == PHP_SESSION_NONE) {
                         <div class="footer-section">
                             <h3>TIENDA</h3>
                             <ul>
-                                <li><a href="#">Las mejores hamburguesas</a></li>
-                                <li><a href="#">Los mejores Cafés</a></li>
-                                <li><a href="#">Productos</a></li>
+                                <li><a href="/BCorsafe#seccion3">Las mejores hamburguesas</a></li>
+                                <li><a href="/BCorsafe/productos">Productos</a></li>
                             </ul>
                         </div>
                         <div class="footer-section">
                             <h3>BCORSAFE</h3>
                             <ul>
-                                <li><a href="#">Sobre Nosotros</a></li>
+                                <li><a href="/BCorsafe#seccion-sobre">Sobre Nosotros</a></li>
                             </ul>
                         </div>
                         <div class="footer-section">
@@ -165,7 +166,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <p>Copyright © 2024 BCorsafe. All rights reserved.</p>
                     <div class="terminos">
                     
-                        <a href="#">Términos de Uso</a> | <a href="#">Configuración de Cookies</a>
+                        <a href="/BCorsafe/usuario/terminosUso">Términos de Uso</a> | <a href="/BCorsafe/usuario/politicaCookies">Configuración de Cookies</a>
                     </div>
                 </div>
             </div>

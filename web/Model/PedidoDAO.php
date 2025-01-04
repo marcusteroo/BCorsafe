@@ -122,7 +122,18 @@ class PedidoDAO extends BaseDAO {
         $_SESSION['ultimos_pedidos'] = $pedidos;
         return $pedidos;
     }
-    
+    public function obtenerPedidosCompletadosAdmin() {
+        $stmt = $this->db->prepare("
+            SELECT * FROM Pedidos 
+            WHERE estado = 'completado'
+            ORDER BY id_pedido DESC 
+        ");
+        $stmt->execute();
+        // Guardar resultados en la sesión
+        $pedidos = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $_SESSION['ultimos_pedidos'] = $pedidos;
+        return $pedidos;
+    }
 
     
 

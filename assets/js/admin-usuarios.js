@@ -4,6 +4,47 @@ window.onload = function() {
     if (currentPath === '/BCorsafe/admin/usuarioAdmin') {
         obtenerUsuarios();
     }
+    if (currentPath === '/BCorsafe/admin/NewCuponAdmin') {
+        document.getElementById('addCuponFormAdmin').addEventListener('submit', function (e) {
+            e.preventDefault(); // Para evitar que el formulario se envíe por defecto
+    
+            const nombre_cupon = document.getElementById('nombre_cupon').value;
+            const descuento = document.getElementById('descuento').value;
+            const url = 'http://localhost/BCorsafe/web/api/api.php?action=add_cupon';
+    
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nombre_cupon,
+                    descuento,
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.estado === 'Exito') {
+                        document.getElementById('message').style.display = 'block';
+                        document.getElementById('error-message').style.display = 'none';
+                        document.getElementById('addCuponFormAdmin').reset();
+                        setTimeout(function() {
+                            location.reload();  // Recarga la página
+                        }, 1000);
+    
+                    } else {
+                        document.getElementById('message').style.display = 'none';
+                        document.getElementById('error-message').style.display = 'block';
+                        document.getElementById('error-message').textContent = data.mensaje;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('message').style.display = 'none';
+                    document.getElementById('error-message').style.display = 'block';
+                });
+        });
+    }
     if (currentPath.includes('BCorsafe/admin/NewusuarioAdmin')){ //Esto es para que si no esta en la página de usuarioAdmin no se ejecute
         document.getElementById('addUserFormAdmin').addEventListener('submit', function (e) {
             e.preventDefault(); // Para evitar que el formulario se envíe por defecto
@@ -124,7 +165,7 @@ function eliminarUsuario(idUsuario) {
         if (data.estado === 'Exito') {
             obtenerUsuarios(); // Volver a cargar los pedidos después de eliminar
         } else {
-            alert('Hubo un problema al eliminar el Usuario.');
+            alert(data.message);
         }
     })
     .catch(error => console.error('Error:', error));

@@ -219,6 +219,19 @@ class UsuarioController extends BaseController {
         $admin = false;
         include_once("web/View/main/main.php");
     }
+    //Esto es para las paginas de termino de uso y cookies
+    public function terminosUso(){
+        $titulo = "Términos de Uso";
+        $vista = "web/View/terminos-uso.php";
+        $admin = false;
+        include_once("web/View/main/main.php");
+    }
+    public function politicaCookies(){
+        $titulo = "Política de Cookies";
+        $vista = "web/View/cookies.php";
+        $admin = false;
+        include_once("web/View/main/main.php");
+    }
     
 }
 ?>

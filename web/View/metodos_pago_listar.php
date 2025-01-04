@@ -35,7 +35,11 @@
                             <div class="container2-metodos">
                                 <img src="/BCorsafe/assets/img/<?php echo htmlspecialchars($metodo->tipo_pago);?>.svg" alt="Imagen<?php echo htmlspecialchars($metodo->tipo_pago);?>">
                             </div>
+                            
                         </li>
+                        <div class="eliminar-metodo">
+                            <a href="/BCorsafe/metodosPago/eliminar?id_pago=<?php echo $metodo->id_pago; ?>">Eliminar</a>
+                        </div>
                     <?php endforeach; ?>
                 </ul>
                 <button class="btn-metodopago btn-cambiar-metodopago" onclick="mostrarFormulario()">Cambiar Método de Pago</button>
