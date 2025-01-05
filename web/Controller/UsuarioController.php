@@ -20,7 +20,7 @@ class UsuarioController extends BaseController {
         $usuarioDAO = new UsuarioDAO();
         $usuario = $usuarioDAO->obtenerPorId($_SESSION['usuario_id']);
         $titulo = "Mi Cuenta";
-        $vista = 'web/View/miCuenta.php';
+        $vista = 'web/View/micuenta.php';
         $admin = false;
         include_once("web/View/main/main.php"); 
     }
