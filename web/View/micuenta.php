@@ -21,7 +21,7 @@
         <!-- parte derecha -->
         <div class="micuenta-info">
             <?php if (isset($_SESSION['mensaje'])): ?>
-                <div class="alert alert-success"><?php echo $_SESSION['mensaje_error_img']; unset($_SESSION['mensaje_error_img']); ?></div>
+                <div class="alert alert-success"><?php echo $_SESSION['mensaje']; unset($_SESSION['mensaje']); ?></div>
             <?php endif; ?>
 
             <div class="mb-4">

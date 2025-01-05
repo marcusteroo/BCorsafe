@@ -29,12 +29,31 @@ class ProductosController extends BaseController {
         $titulo = "Productos";
         $vista = "web/View/productos.php";
         $admin = false;
+    
         $precios = $_POST['precios'] ?? [];
         $ingredientes = $_POST['ingredientes'] ?? [];
-        
+    
+        $_SESSION['filtros']['precios'] = $precios;
+        $_SESSION['filtros']['ingredientes'] = $ingredientes;
+    
+        // Redirige con GET después del POST
+        header("Location: /BCorsafe/productos/filtrar_resultados");
+        exit;
+    }
+    public function filtrar_resultados() {
+        $titulo = "Productos";
+        $vista = "web/View/productos.php";
+        $admin = false;
+    
+        // Recupera los filtros de la sesión
+        $precios = $_SESSION['filtros']['precios'] ?? [];
+        $ingredientes = $_SESSION['filtros']['ingredientes'] ?? [];
+    
         $productoModel = new ProductoDAO();
-        
+    
+        // Obtiene los productos filtrados
         $productos = $productoModel->obtenerProductosFiltrados($precios, $ingredientes);
+    
         include_once("web/View/main/main.php");
         include_once "web/View/productos.php";
     }

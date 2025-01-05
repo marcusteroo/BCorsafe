@@ -57,4 +57,4 @@
 </div>
 
 <script src="/BCorsafe/assets/js/actualizar_precio.js"></script>
-<script src="/BCorsafe/assets/js/regresar-productos.js"></script>
+
